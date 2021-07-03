@@ -71,5 +71,28 @@ page_sections:
     transform: translate(-50%,-95%);
     }
     }
+- template: ctas
+  block: ctas
+  section_title: Members
+  section_text: testing
+  button_url: "/"
+  cta:
+  - image: "/uploads/2021/07/03/matt.png"
+    title: Matt Fourman
+    text: Vocalist
+    link: ''
+  - image: "/uploads/2021/07/03/jose.png"
+    title: Jose Escudero
+    text: Bassist
+    link: ''
+  - image: "/uploads/2021/07/03/austin.png"
+    title: Austin Matherne
+    text: Drummer
+    link: ''
+  - image: "/uploads/2021/07/03/nico.png"
+    title: Nicolai Cespedes
+    text: Studio Guitarist
+    link: ''
+  button_text: text
 
 ---
