@@ -1,4 +1,67 @@
 ---
 label: CTAs
 hide_body: true
-fields: []
+fields:
+- name: block
+  type: text
+  config:
+    required: false
+  label: Block
+  default: ctas
+  hidden: true
+- name: section_title
+  type: text
+  config:
+    required: false
+  label: Section Title
+- name: section_text
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Section Text
+- name: button_text
+  type: text
+  config:
+    required: false
+  label: Button Text
+- name: button_url
+  type: text
+  config:
+    required: false
+  label: Button Url
+- name: cta
+  type: field_group_list
+  fields:
+  - name: image
+    type: file
+    config:
+      maxSize: 64
+    label: Image
+  - name: title
+    type: text
+    config:
+      required: false
+    label: Title
+  - name: text
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: true
+      schema:
+        format: markdown
+    label: Text
+  - name: link
+    type: text
+    config:
+      required: false
+    label: Link
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: CTA
