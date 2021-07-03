@@ -9,12 +9,11 @@
     {% assign count = 0 %}
     {% for section in page.page_sections %}
 
+      {% assign formattedJson = false %}
       {% if section.block == 'hero-image' %}
-        <div>1: {{section.block}}</div>
         {% assign count = count | plus: 1 %}
         {% assign formattedJson = true %}
       {% endif %}
-      {% assign formattedJson = false %}
 
       {% if formattedJson == true %}
         <div class="raw-json hide">{{section|jsonify}}</div>
