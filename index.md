@@ -59,6 +59,9 @@ page_sections:
     == h2 {
     font-size: 50px;
     }
+    == .rte {
+    font-size: 20px;
+    }
     == .center-content {
     top: 95%;
     left: 50%;
