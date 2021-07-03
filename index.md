@@ -38,7 +38,17 @@ page_sections:
   button_url: "#"
   alt_text: ''
   custom_size: ''
-  custom_css: ''
+  custom_css: |-
+    == {
+    background: blue;
+    padding: 30px;
+    }
+
+    /medium-up/ {
+    == {
+    padding: 60px;
+    }
+    }
 - template: hero-banner-w-image
   block: hero-2
   slug: features
