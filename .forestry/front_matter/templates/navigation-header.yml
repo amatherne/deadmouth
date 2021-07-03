@@ -15,10 +15,10 @@ fields:
   label: Navigation
   fields:
   - type: text
-    name: link
-    label: link
-  - type: text
     name: link_text
     label: Link text
+  - type: text
+    name: link
+    label: link
   config:
     labelField: link_text
