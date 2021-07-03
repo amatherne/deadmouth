@@ -11,11 +11,11 @@
       
       {% include block-{{ section.block }}.html %}
 
-      {% if section.block == 'header-1' %}
+      {% assign formattedJson = false %}
+      {% if section.block == 'hero-image' %}
         {% assign count = count | plus: 1 %}
         {% assign formattedJson = true %}
       {% endif %}
-      {% assign formattedJson = false %}
     
       {% if formattedJson == true %}
         <div class="raw-json hide">{{section|jsonify}}</div>

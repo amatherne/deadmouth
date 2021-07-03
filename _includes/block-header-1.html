@@ -3,7 +3,7 @@
 {% assign s               = section %}
 
 {% assign homeUrl         = '/' | relative_url %}
-{% assign homeUrl         = '#top' %}
+{% assign homeUrl         = '/#top' | relative_url %}
 
 {% assign siteTtl         = site.title %}
 
@@ -13,6 +13,7 @@
 {% assign sectionClass    = 'section--' | append: s.block | append: '--' | append: forloop.index %}
 {% assign cssClass        = '.' | append: sectionClass %}
 
+<div id="top"></div>
 
 <header class="site-header {{sectionClass}}">
 

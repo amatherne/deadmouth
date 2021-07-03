@@ -22,10 +22,10 @@ page_sections:
 - template: hero-image
   alignment: Center
   size: Cover
-  height: clamp(400px,66%,100vh)
+  height: clamp(500px,66%,100vh)
   text_alignment: Center
-  vertical_align: 50
-  horizontal_align: '95'
+  vertical_align: '95'
+  horizontal_align: '50'
   content_width: 400px
   text_color: "#FFFFFF"
   overlay_color: "#8B2F2F"

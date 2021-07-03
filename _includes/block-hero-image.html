@@ -7,8 +7,8 @@
 {% assign sectionClass    = 'section--' | append: s.block | append: '--' | append: forloop.index %}
 {% assign cssClass        = '.' | append: sectionClass %}
 
-{% assign img             =  s.image | relative_url %}
-
+{% assign img             =  s.image %}
+{% comment %}
 <section class="page-hero {{sectionClass}}">
   
   {% include snippet--image.html 
@@ -20,3 +20,576 @@
   {% include custom-css.html css=customCSS class=cssClass %}
 
 </section>
+
+
+{% endcomment %}
+
+
+{%- comment -%} 
+
+    - Id/attr settings  
+    - Fallbacks / Defaults 
+    - Set Padding to match site width 
+
+{%- endcomment -%} 
+{% assign block_id_num     = forloop.index  %}
+
+{% assign blkCls           = 'section--' | append: s.block | append: '--' | append: block_id_num  %}
+{% assign class            = '.' | append: blkCls %}
+
+{% assign sectionCustomCSS = s.custom_css | raw %}
+
+{% assign sitePaddingDef   = '55' %}
+{% assign sitePaddingType  = 'px' %}
+{% assign sitePadding      = sitePaddingDef | append: sitePaddingType %}
+
+{% assign hght_fallback    = '500px' %}
+
+{% assign defBodyColor     = '#ffffff' %}
+{% assign defTextColor     = '#000000' %}
+
+{% assign dskTop           = '-30px' %}
+{% assign mobTop           = '-30px' %}
+
+{% assign tempName         = template.name %}
+
+{% assign showHero         = true %}
+{% assign tagSpltr         = '<span>|</span>' %}
+{%- comment -%} 
+    
+    ====================
+    Image Asset Settings 
+    ====================
+
+    - Check for defaults first
+    - Fallback for blogs and collections incase they don't have a featured image.
+    - Featured images
+    - Check if Override is allowed
+    - Check for Mobile Image
+    - Assign default mobile if Mobile Image blank
+
+{% endcomment %}
+{% assign allow_default    = s.allow_default %}
+{% if blog.articles.first.image != blank %}
+    {% assign dskImg       = blog.articles.first.image %}
+{% endif %}
+{% if collection.products.first != blank %}
+    {% assign IGNORE_dskImg = collection.products.first.featured_image %}
+{% endif %}
+{% if collection.image != blank %}
+    {% assign dskImg       = collection.image %}
+{% endif %}
+{% if blog.featured_image != blank %}
+    {% assign dskImg       = blog.featured_image %}
+{% endif %}
+{% if article.image != blank %}
+    {% assign dskImg       = article.image %}
+{% endif %}
+{% assign overRide         = false %}
+{% if allow_default == true and dskImg != blank %}
+    {% assign overRide     = true %}
+{% endif %}
+
+
+
+{% if s.image != blank and overRide == false %}
+    {% assign dskImg       = s.image %}
+{% endif %}
+
+
+{% if s.image_mob != blank %}
+    {% assign mobImg       = s.image_mob %}
+{% endif %}
+{% if mobImg == blank %}
+    {% assign mobImg       = dskImg %}
+{% endif %}
+{%- comment -%} 
+
+
+    ==============================================================
+
+    IF NO IMAGES FOUND THEN HIDE ON PAGE/TEMPLATE!
+
+    We don't want to let any broken images through on accident. ;)
+
+    ==============================================================
+
+
+ {%- endcomment -%}
+{%- if dskImg == blank -%}{%- assign showHero = false -%}<!-- Stopped because no image found -->{%- endif -%}
+{%- comment -%} 
+
+    ====================
+    Image Style Settings
+    ====================
+    
+    - Desktop Settings 
+    - Mobile Settings
+
+{%- endcomment -%}
+{% assign dskImgBgSize     = s.size %}
+{% if dskImgBgSize == 'custom' %}
+    {% assign dskImgBgSize = s.custom_size %}
+{% endif %}
+
+{% assign mobImgBgSize     = s.size_mob %}
+{% if mobImgBgSize == 'custom' %}
+    {% assign mobImgBgSize = s.custom_size_mob %}
+{% endif %}
+
+{% assign dskHght          = s.height | default: hght_fallback %}
+{% if dskHght contains '%' %}
+    {% assign dskImgHght   = 'padding-top:' | append: dskHght | append: ';height: 0;min-height: 0;' %}
+{% else %}
+    {% assign dskImgHght   = 'min-height:' | append: dskHght | append: ';' %}
+{% endif %}
+
+{% assign mobHght          = s.height_mobile | default: dskHght %}
+{% if mobHght contains '%' %}
+    {% assign mobImgHght   = 'padding-top:' | append: mobHght | append: ';height: 0;min-height: 0;' %}
+{% else %}
+    {% assign mobImgHght   = 'min-height:' | append: mobHght | append: ';' %}
+{% endif %}
+
+{% assign dskImgPos        = s.alignment %}
+{% assign dskImgCSS        = 'background-repeat: no-repeat;background-position:' | append: dskImgPos | append: ';background-size:' | append: dskImgBgSize | append: ';' %}
+
+{% assign mobImgPos        = s.align_bg_mob %}
+{% assign mobImgCSS        = 'background-repeat: no-repeat;background-position:' | append: mobImgPos | append: ';background-size:' | append: mobImgBgSize | append: ';' %}
+{%- comment -%}
+    
+    =====================
+    Text Content Settings
+    =====================
+
+    - Check for defaults from types
+    - Page
+    - Collection
+    - Blog feed
+    - Article
+    - Override Title and Text
+    - Button info/show
+
+{%- endcomment -%}
+{% if tempName contains 'page' %}
+    {% assign mainTtl  = page_title %}
+    {% assign mainTxt  = page.content %}
+{% elsif tempName contains 'collection' %}
+    {% assign tag      = '' %}
+    {% if current_tags %}
+        {% for tag in current_tags %}
+            {% assign t = tag | capitalize %}
+            {% assign unl = '' %}
+            {% unless forloop.last %}
+                {% assign unl = tagSpltr %}
+            {% endunless %}
+            {% assign mainTtl = mainTtl | append: '<span>' | append: t | append: '</span>' | append: unl %}
+        {% endfor %}
+    {% else %}
+        {% assign mainTtl = collection.title %}
+    {% endif %}
+    {% assign mainTxt  = collection.description %}
+{% elsif tempName contains 'blog' %}
+    {% assign tag      = '' %}
+    {% if current_tags %}
+        {% for tag in current_tags %}
+            {% assign t = tag | capitalize %}
+            {% assign unl = '' %}
+            {% unless forloop.last %}
+                {% assign unl = tagSpltr %}
+            {% endunless %}
+            {% assign mainTtl = mainTtl | append: '<span>' | append: t | append: '</span>' | append: unl %}
+        {% endfor %}
+    {% else %}
+        {% assign mainTtl = blog.title %}
+    {% endif %}
+    {% assign mainTxt  = blog.description %}
+{% elsif tempName contains 'article' %}
+    {% assign tag      = '' %}
+    {% if current_tags %}
+        {% for tag in current_tags %}
+            {% assign t = tag | capitalize %}
+            {% assign unl = '' %}
+            {% unless forloop.last %}
+                {% assign unl = tagSpltr %}
+            {% endunless %}
+            {% assign mainTtl = mainTtl | append: '<span>' | append: t | append: '</span>' | append: unl %}
+        {% endfor %}
+    {% else %}
+        {% assign mainTtl = article.title %}
+    {% endif %}
+    {% assign mainTxt  = article.description %}
+{% endif %}
+
+{% if s.title != blank %}
+    {% assign mainTtl  = s.title %}
+{% endif %}
+{% if s.text != blank %}
+    {% assign mainTxt  = s.text %}
+{% endif %}
+
+{% if s.hide_title  == true %}
+    {% assign mainTtl  = blank %}
+{% endif %}
+{% if s.hide_content == true %}
+    {% assign mainTxt  = blank %}
+{% endif %}
+
+{% assign btnUrl       = s.button_url %}
+{% assign btnTxt       = s.button_text %}
+{% assign btnStyle     = s.btn_style %}
+{% assign useBtn       = false %}
+{% if btnUrl != blank and btnTxt != blank %}
+    {% assign useBtn   = true %}
+{% endif %}
+{%- comment -%}
+    
+    ================================
+    Text Position/Alignment Settings
+    ================================
+    
+    - Check if text should be below image
+    - Vertical / Horizontal Alignment
+    - Content Max Width
+    - Text Alignment
+    - Content Positioning CSS
+
+{%- endcomment -%}
+{% assign dskTxtBelow  = s.separate_text_desktop | default: false %}
+{% assign dskTxtBelow  = false %}
+{% assign mobTxtBelow  = s.separate_text_mobile | default: false %}
+{% assign mobTxtBelow  = false %}
+
+{% assign horAnchor    = 'center' %}
+{% assign vertPerc     = s.vertical_align %}
+{% assign horPerc      = s.horizontal_align %}
+{% assign maxWidth     = s.content_width %}
+{% assign txtAlign     = s.text_alignment %}
+
+{% if horAnchor == 'center' %}
+    {% assign txtContentPosition = 'left:' | append: horPerc | append: '%;transform:translate(-' | append: horPerc | append: '%,-' | append: vertPerc | append: '%);top:' | append: vertPerc | append: '%;' %}
+{% elsif horAnchor == 'left' %}
+    {% assign txtContentPosition = 'left:calc(' | append: horPerc | append: '% + ' | append: sitePadding | append: ');transform:translate(-' | append: horPerc | append: '%,-' | append: vertPerc | append: '%);top:' | append: vertPerc | append: '%;' %}
+{% elsif horAnchor == 'right' %}
+    {% assign txtContentPosition = 'left:initial;right:calc(' | append: horPerc | append: '% + ' | append: sitePadding | append: ');transform:translate(' | append: horPerc | append: '%,-' | append: vertPerc | append: '%);top:' | append: vertPerc | append: '%;' %}
+{% endif %}
+{%- comment -%}
+    
+    ==============
+    Color Settings 
+    ==============
+    
+    - Background Color
+
+{%- endcomment -%}
+{% assign op       = s.overlay_opacity | times: 0.01 %}
+{% assign contentBg = s.set_to_overlay_container %}
+
+{% assign mltply   = 1 %}
+{% if contentBg == true and horPerc == 0 %}
+    {% assign mltply = 2 %}
+{% endif %}
+{% assign sitePaddingContentBg = sitePaddingDef | times: mltply | append: sitePaddingType %}
+
+{% assign txtColor = s.text_color %}
+{% assign mobTxtColor = defTextColor %}
+
+{% assign hex  = s.overlay_color %}
+{% capture bgColor %}rgba({% include hex_to_rgb.html hex=hex %},{{op}}){% endcapture %}
+{% comment %}
+    
+    =================
+
+    Start of Hero CSS 
+    
+    Keep Indentation as is for clean output.
+
+    =================
+
+{% endcomment %}
+{%- comment -%}
+    Text On Desktop is separate
+{%- endcomment -%}
+{%- if dskTxtBelow == true -%}
+{%- capture dskCSS %}
+    /* Desktop Text Below */
+    == .bg_image,
+    == .center-content,
+    == .page-width {
+        position: relative;
+        top: initial;
+        left: initial;
+        right:  initial;
+        transform: none;
+    }
+    == .center-content {
+        text-align: center;
+        max-width: {{maxWidth}};
+        margin: 60px auto;
+    }
+    ==::before {
+        display: none;
+    } 
+    == h2,
+    == .rte *:not(.btn) {
+        color: {{mobTxtColor}};
+    }
+    == .bg_image,
+    == .video-ratio .wrapper {
+        {{dskImgHght}}
+    }
+    == .bg_image {
+        {{dskImgCSS}}
+    }
+{% endcapture -%}
+{%- endif -%}
+{%- comment -%}
+    Text On Desktop is NOT separate
+{%- endcomment -%}
+{%- if dskTxtBelow == false -%}
+{%- capture dskCSS %}
+    /* Desktop Text Overlayed */
+    == .video-ratio .wrapper,
+    == {
+        {{dskImgHght}}
+    }
+    == h2,
+    == .rte *:not(.btn) {
+        color: {{txtColor}};
+        text-align: {{txtAlign}};
+    }
+    == .center-content {
+        position: absolute;
+        text-align: center;
+        width: 90%;
+        z-index: 2;
+        max-width: {{maxWidth}};
+        {{txtContentPosition}}
+    }
+    == .page-width {
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+    }
+
+    
+    == .bg_image {
+        padding:0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        {{dskImgCSS}}
+    }
+{% endcapture -%}
+{%- endif -%}
+{%- comment -%}
+    Text on Mobile is separate
+{%- endcomment -%}
+{%- if mobTxtBelow == true -%}
+{%- capture mobCSS %}
+        /* Mobile Text Below */
+        {% if dskTxtBelow != true %}
+        == {
+            padding-top: initial;
+            height: initial;
+            min-height: initial;
+        }
+        {% endif %}
+        == .bg_image,
+        == .center-content,
+        == .page-width {
+            position: relative;
+            top: initial;
+            left: initial;
+            right:  initial;
+            transform: none;
+        }
+        == .bg_image,
+        == .video-ratio .wrapper {
+            {{mobImgHght}}
+        }
+        == .center-content {
+            text-align: center;
+            width: 95%;
+            max-width: 500px;
+            margin: 60px auto;
+        }
+        ==::before,
+        == .center-content::before {
+            display: none;
+        } 
+        == h2,
+        == .rte *:not(.btn) {
+            color: {{mobTxtColor}};
+        }
+{% endcapture -%}
+{%- endif -%}
+{%- comment -%}
+    Text On Mobile is NOT separate
+{%- endcomment -%}
+{%- if mobTxtBelow == false -%}
+{%- capture mobCSS %}
+        /* Mobile Text Overlayed */
+        == {
+            {{mobImgHght}}
+        }
+        == .center-content {
+            right:  initial;
+            transform: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 95%;
+            max-width: 500px;
+            text-align: center;
+            transform: translate(-50%,-50%);
+        }  
+{% endcapture -%}              
+{%- endif -%}
+{% capture allCSS %}
+    /* Desktop Defaults */
+    == {
+        position: relative;
+        margin-top: {{dskTop}};
+        z-index: 1;
+    }
+    =={%- if contentBg == true -%}{{' '}}.center-content{%- endif -%}::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        {%- if contentBg == true -%}
+        width: calc(100% + {{sitePaddingContentBg}});
+        height: calc(100% + {{sitePaddingContentBg}});
+        {%- else -%}
+        width: 100%;
+        height: 100%;
+        {%- endif -%}
+        z-index: {%- if contentBg == true -%}-{%- endif -%}1;
+        background-color: {{ bgColor }};
+    }
+    == h2 {
+        font-size: 35px;
+        text-transform: initial;
+        font-weight: 400;
+        letter-spacing: 0;
+        margin: 0;
+    }
+    == h2 + .rte {
+        margin-top: 15px;
+    }
+    == .video-ratio {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        z-index: 0;
+    }
+    == .video-ratio:before {
+        content: '';
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        z-index: -1;
+    }
+    == video, 
+    == iframe {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+    }
+    /* Desktop Style */
+    {{dskCSS}}
+    /small/ {
+        /* Mobile Defaults */
+        == {
+            margin-top: {{mobTop}};
+        }
+        == .bg_image {
+           {{mobImgCSS}}
+        }
+        == h2,
+        == .rte *:not(.btn) {
+            text-align: center;
+        }
+        == h2 {
+            font-size: 32px;
+        }
+        /* Mobile Style */
+        {{mobCSS}}
+    }
+{% endcapture %}
+{%- comment -%}
+    
+
+    ====================================
+    If Hero image exists then Show Hero! 
+    ====================================
+
+
+{%- endcomment -%}
+{%- if showHero == true -%}
+    <div class="hero-container {{blkCls}}">
+        {% assign extraClass = '' %}
+        {% assign useBG = true %}
+        {% assign cf = true %}
+        {% if mobImg %}
+            {% assign extraClass = 'small--hide' %}
+            {% assign img = mobImg %}
+            {% include snippet--image.html img=img useBG=useBG cf=cf extraClass=extraClass %}
+        {% endif %}
+
+        {% assign img = dskImg %}
+        {% include snippet--image.html img=img useBG=useBG cf=cf extraClass=extraClass %}
+
+        <div class="page-width">
+            {%- if mainTtl != blank or mainTxt != blank or useBtn == true -%}
+                <div class="center-content">
+                    {%- if mainTtl != blank -%}<h2 class="h1">{{ mainTtl }}</h2>{%- endif -%}
+                    {%- if mainTxt != blank -%}<div class="rte">{{mainTxt}}</div>{%- endif -%}
+                    {%- if useBtn == true -%}<a class="btn button btn--{{btnStyle}}" href="{{ btnUrl }}">{{ btnTxt }}</a>{%- endif -%}
+                </div>
+            {%- endif -%}
+        </div>
+        {% assign customCSS = allCSS %}
+        {% include custom-css.html css=customCSS class=cssClass %}
+        {% assign customCSS = sectionCustomCSS %}
+        {% include custom-css.html css=customCSS class=cssClass %}
+    </div>
+{%- endif -%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

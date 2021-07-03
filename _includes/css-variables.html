@@ -5,12 +5,28 @@
   {% assign hex                         = '#090D03' %}
   --color--black-forest                 : {{hex}};
   --color-rgb--black-forest             : {% include hex_to_rgb.html hex=hex %};
+
+  {% assign hex                         = '#8B3037' %}
+  --color--el-salva                     : {{hex}};
+  --color-rgb--el-salva                 : {% include hex_to_rgb.html hex=hex %};
+
+
+  
   
 
   --color--site-background              : var(--color--black-forest);
   --color--site-text                    : white;
 
   --color--header-background            : var(--color-rgb--black-forest);
+
+
+  --color--btn--txt                     : white;
+  --color--btn--bg                      : var(--color--el-salva);
+  --color--btn--bdr                     : var(--color--el-salva);
+
+  --color--btn-hov--txt                 : var(--color--el-salva);
+  --color--btn-hov--bg                  : white;
+  --color--btn-hov--bdr                 : var(--color--el-salva);
   
 
   --font--anton                         :'Anton', sans-serif;
@@ -22,6 +38,7 @@
 
 
   --transition--header                  : .15s ease-in-out;
+  --transition--button                  : .3s ease-in-out;
 
 }
 </style>
