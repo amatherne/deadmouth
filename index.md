@@ -44,7 +44,7 @@ page_sections:
     }
     == .rte {
     font-size: 34px;
-    font-famiy: var(--font--header-stack);
+    font-family: var(--font--header-stack);
     font-weight: 500;
     }
 
