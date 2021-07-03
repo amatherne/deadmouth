@@ -20,6 +20,22 @@ page_sections:
   cta:
     url: https://app.forestry.io/quick-start?repo=forestryio/ubuild-jekyll&provider=github&engine=jekyll
     button_text: Import
+- template: navigation-header
+  block: header-1
+  navigation:
+  - link: "#"
+    link_text: Members
+  - link_text: Bio
+    link: "#"
+  - link: "#"
+    link_text: Music
+  - link: "#"
+    link_text: Gallery
+  - link: "#"
+    link_text: Monster - Music Video
+  - link: "#"
+    link_text: Merch
+  logo: ''
 - template: hero-banner-w-image
   block: hero-2
   slug: features
