@@ -94,5 +94,7 @@ page_sections:
     text: Studio Guitarist
     link: ''
   button_text: text
+  large_images: true
+  align_ctas_left: true
 
 ---
