@@ -16,11 +16,11 @@
   {% if alt != blank %}
     {% assign imgAlt = alt %}
   {% endif %}
+  {% assign imgSrc = img | img_url: '600x600' %}
+  {% if cf == true %}
+    {% assign imgSrc = img | relative_url  %}
+  {% endif %}
   {% if useBG == true %}
-    {% assign imgSrc = img | img_url: '600x600' %}
-    {% if cf == true %}
-      {% assign imgSrc = img | relative_url  %}
-    {% endif %}
     <noscript>
       <div class="bg_image {{extraClass}}" style="background-image: url({{ imgSrc }});{{customStyle}}"></div>
     </noscript>
@@ -29,7 +29,7 @@
     </div>
   {% else %}
     <div class="image-content__image-container {{extraClass}}" {% if customStyle %}style="{{customStyle}}"{% endif %}>
-      <img data-src="{{img}}" class="lazyload" src="" />
+      <img data-src="{{imgSrc}}" class="lazyload" src="" />
     </div>
   {% endif %}
 {% endif %}

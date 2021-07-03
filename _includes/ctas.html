@@ -1,29 +1,98 @@
 <!-- include/ctas -->
 
-{% assign s               = section %}
+{% assign s                       = section %}
 
-{% assign homeUrl         = '/' | relative_url %}
-{% assign homeUrl         = '/#top' | relative_url %}
+{% assign ttl                     = s.section_title | default: '' %}
+{% assign txt                     = s.section_text | default: '' %}
 
-{% assign siteTtl         = site.title %}
+{% assign btn_url                 = s.button_url | default: '' %}
+{% assign btn_txt                 = s.button_text | default: '' %}
+{% assign btnStyle                = s.btn_style %}
 
+{% assign use_btn                 = false %}
+{% if btn_url != '' and btn_txt != '' %}
+    {% assign use_btn             = true %}
+{% endif %}
 
-{% assign customCSS       = s.custom_css %}
-{% assign sectionClass    = 'section--' | append: s.block | append: '--' | append: forloop.index %}
-{% assign cssClass        = '.' | append: sectionClass %}
+{% assign customCSS               = s.custom_css %}
+{% assign sectionClass            = 'section--' | append: s.block | append: '--' | append: forloop.index %}
+{% assign cssClass                = '.' | append: sectionClass %}
 
+{% case section.cta.size %}
+    {% when 1 %}{%- assign width = '' -%}
+    {% when 2 %}{%- assign width = 'large-up--one-half' -%}
+    {% when 4 or 7 or 8 %}{%- assign width = 'medium--one-half large-up--one-quarter' -%}
+    {% else %}{%- assign width = 'large-up--one-third' -%}
+{% endcase %}
 
 <header class="section--ctas {{sectionClass}}">
 
   <div class="page-width with-padding">
 
-<!--     {% for nav_item in section.navigation %}
-      <li class="site-header--nav__item {% if page.url == nav_item.link %}active{% endif %}">
-        <a href="{{ nav_item.link | relative_url }}">
-          {{ nav_item.link_text }}
-        </a>
-      </li>
-    {% endfor %} -->
+    {% if ttl != '' or img != '' or txt != '' %}
+      <div class="section--title text-center {% if ttl != '' and img == '' and txt == '' and use_lnk == true %}inline--link{% endif %}">
+        {% if ttl != '' %}
+          <h2>{{ttl}}</h2>
+        {% endif %}
+        {% if txt != '' %}
+          <div class="rte">{{txt}}</div>
+        {% endif %}
+        {% if use_lnk == true %}
+          <a href="{{lnk_url}}" class="text-link">{{lnk_txt}}</a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="grid grid_margin_bottom vert-top">
+      
+      {% for c in section.cta %}
+        {% assign img             = c.image | default: '' %}
+        {% assign ttl             = c.title | default: '' %}
+        {% assign txt             = c.text | default: '' %}
+        {% assign lnk             = b.link | default: '' %}
+
+
+        {% assign extraClass      = '' %}
+        {% assign useBG           = false %}
+        {% assign cf              = true %}
+
+        {% assign el              = 'div' %}
+        {% assign attr            = '' %}
+        {% if lnk != '' %}
+            {% assign el          = 'a' %}
+            {% assign attr        = 'href="' | append: lnk | append: '"' %}
+        {% endif %}
+
+        {% assign extraClass      = 'icon-image inner-icon' %}
+
+        {% if large_images == true %}
+            {% assign extraClass  = 'normal-image' %}
+        {% endif %}
+
+
+        <div class="grid__item {{width}} {% if align_boxes_left == true %}text-left{% endif %}">
+          <{{el}} {{attr}} class="inner-container">
+            
+            {% include snippet--image.html img=img useBG=useBG cf=cf extraClass=extraClass %}
+
+            {% if ttl != '' %}
+              <h3>{{ttl}}</h3>
+            {% endif %}
+
+            {% if txt != '' %}
+              <div class="rte">{{txt}}</div>
+            {% endif %}
+
+            {% if useBtnBlk == true %}
+              <a href="{{lnk}}" class="btn btn--{{btnStyleBlk}}">{{btnTxt}}</a>
+            {% endif %}
+
+          </{{el}}>
+        </div>
+
+
+      {% endfor %}
+    </div>
 
   </div>
 

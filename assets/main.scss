@@ -1102,3 +1102,134 @@ a {
 
 
 
+.section--title {
+  margin: 0 0 var(--base-gutter--double);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  *:not(:last-child) {
+    margin-bottom: var(--base-gutter);
+  }
+
+
+  &.inline--link {
+    @include mq($medium-up) {
+      display: flex;
+      flex-direction: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0;
+
+      h2 {
+        margin: 0 0 var(--base-gutter--half);
+      }
+
+      .text-link {
+        margin: 0 0 var(--base-gutter--half);
+        display: block;
+      }
+
+
+    }
+  }
+
+  &:not(.inline--link) {
+    @include mq($medium-up) {
+
+      h2 {
+        font-size: 35px;
+      }
+
+    }
+  }
+}
+
+.section--ctas {
+  position: relative;
+  padding: var(--base-gutter--double) 0;
+  z-index: 1;
+
+  .page-width {
+    padding: 0 $grid-gutter;
+  }
+
+  .bg_image.main-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  .bg_image+.page-width {
+    * {
+      color: white;
+    }
+  }
+
+  .video-inline {
+    // Makes videos fit with no controls showing
+    overflow: hidden;
+    position: relative;
+
+    .wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      padding-top: 0%;
+      height: 0;
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: none;
+      }
+    }
+  }
+
+
+
+  .inner-container {
+    // max-width: 400px;
+    margin: 0 auto;
+
+    .icon-image {
+      margin: 0 auto;
+      max-width: 150px;
+    }
+
+
+
+    .image-content__image-container:not(.icon-image)+* {
+      margin-top: 20px;
+    }
+
+    *:not(:last-child) {
+      margin-bottom: var(--base-gutter--half);
+    }
+
+    h3 {
+      font-size: 24px;
+    }
+  }
+
+  .btn-container {
+    margin-top: var(--base-gutter--double);
+  }
+
+  @include mq($small) {
+    .inner-container {
+      .feature-row__image-wrapper {
+        max-width: 100px;
+      }
+    }
+  }
+}
