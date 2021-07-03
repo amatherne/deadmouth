@@ -18,19 +18,7 @@ fields:
   label: Page Sections
   template_types:
   - navigation-header
-  - navigation-header-w-button
-  - simple-header
-  - hero-banner-w-image
-  - content-feature
-  - detail-content
-  - 1-column-text
-  - 2-column-text
-  - 3-column-text
-  - full-width-media-element
-  - 2-column-media-element
-  - signup-bar
-  - simple-footer
-  - 4-column-footer
   - hero-image
+  - ctas
 pages:
 - index.md
