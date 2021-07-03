@@ -57,10 +57,10 @@ page_sections:
 
     /small/ {
     == h2 {
-    font-size: 50px;
+    font-size: 55px;
     }
     == .rte {
-    font-size: 20px;
+    font-size: 21px;
     }
     == .center-content {
     top: 95%;
