@@ -156,3 +156,10 @@ fields:
     schema:
       format: markdown
   label: Custom CSS
+- name: block
+  type: text
+  config:
+    required: false
+  label: block
+  hidden: true
+  default: hero-image
