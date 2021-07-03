@@ -1,4 +1,158 @@
 ---
 label: Hero image
 hide_body: true
-fields: []
+fields:
+- name: image
+  type: file
+  config:
+    maxSize: 64
+  label: Image
+- name: alt_text
+  type: text
+  config:
+    required: false
+  label: Alt Text
+- name: alignment
+  type: select
+  default: Center
+  config:
+    required: false
+    options:
+    - Center
+    - Left Center
+    - Right Center
+    - Top Center
+    - Bottom Center
+    - Top Left
+    - Top right
+    - Bottom Left
+    - Bottom Right
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Alignment
+- name: size
+  type: select
+  default: Cover
+  config:
+    required: false
+    options:
+    - Cover
+    - Contain
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Size
+- name: custom_size
+  type: text
+  config:
+    required: false
+  label: Custom Size
+- name: height
+  type: text
+  config:
+    required: false
+  label: Height
+  default: 500px
+- name: title
+  type: text
+  config:
+    required: false
+  label: Title
+- name: text
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Text
+- name: button_text
+  type: text
+  config:
+    required: false
+  label: Button Text
+- name: button_url
+  type: text
+  config:
+    required: false
+  label: Button Url
+- name: text_alignment
+  type: select
+  default: Center
+  config:
+    required: false
+    options:
+    - Left
+    - Center
+    - Right
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Text Alignment
+- name: vertical_align
+  type: number
+  label: Vertical Align
+  description: ''
+  default: 50
+  required: true
+  config:
+    min: 1
+    max: 100
+    step: 1
+- name: horizontal_align
+  type: number
+  description: ''
+  default: 50
+  required: true
+  config:
+    min: 0
+    max: 100
+    step: 1
+  label: Horizontal Align
+- name: content_width
+  type: text
+  config:
+    required: false
+  label: Content Width
+  default: 400px
+- name: text_color
+  type: color
+  label: Text Color
+  config:
+    required: false
+    color_format: Hex
+  default: "#FFFFFF"
+- name: overlay_color
+  type: color
+  label: Overlay Color
+  config:
+    required: false
+    color_format: Hex
+  default: "#000000"
+- name: overlay_opacity
+  type: number
+  description: ''
+  default: 50
+  required: true
+  config:
+    min: 0
+    max: 100
+    step: 
+  label: Overlay Opacity
+- name: custom_css
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Custom CSS
