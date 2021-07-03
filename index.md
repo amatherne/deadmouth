@@ -47,6 +47,14 @@ page_sections:
     font-famiy: var(--font--header-stack);
     font-weight: 500;
     }
+
+    /small/ {
+    == .center-content {
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%,-95%);
+    }
+    }
 - template: simple-footer
   block: footer-1
   content: Made with ❤︎ in Canada
