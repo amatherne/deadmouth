@@ -3,6 +3,22 @@ layout: blocks
 title: Homepage
 date: 2017-11-22T23:00:00.000+00:00
 page_sections:
+- template: navigation-header
+  block: header-1
+  navigation:
+  - link: "#"
+    link_text: Members
+  - link_text: Bio
+    link: "#"
+  - link: "#"
+    link_text: Music
+  - link: "#"
+    link_text: Gallery
+  - link: "#"
+    link_text: Monster - Music Video
+  - link: "#"
+    link_text: Merch
+  logo: ''
 - template: hero-image
   alignment: Center
   size: Cover
@@ -23,22 +39,6 @@ page_sections:
   alt_text: ''
   custom_size: ''
   custom_css: ''
-- template: navigation-header
-  block: header-1
-  navigation:
-  - link: "#"
-    link_text: Members
-  - link_text: Bio
-    link: "#"
-  - link: "#"
-    link_text: Music
-  - link: "#"
-    link_text: Gallery
-  - link: "#"
-    link_text: Monster - Music Video
-  - link: "#"
-    link_text: Merch
-  logo: ''
 - template: hero-banner-w-image
   block: hero-2
   slug: features
