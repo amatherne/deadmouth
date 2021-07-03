@@ -4,10 +4,41 @@
   {% include head.html %}
 
   <body>
+
     
+    {% assign count = 0 %}
     {% for section in page.page_sections %}
+
+      {% if section.block == 'hero-image' %}
+        <div>1: {{section.block}}</div>
+        {% assign count = count | plus: 1 %}
+        {% assign formattedJson = true %}
+      {% endif %}
+      {% assign formattedJson = false %}
+
+      {% if formattedJson == true %}
+        <div class="raw-json hide">{{section|jsonify}}</div>
+        <pre style="max-height: 300px;overflow-x: auto;font-size: 12px;">
+          <code></code>
+        </pre>
+      {% endif %}
+
       {% include block-{{ section.block }}.html %}
+
     {% endfor %}
-  
+    
+    {% if count > 0 %}
+      <script type="text/javascript">
+        $('.raw-json').each(function () {
+          ths = $(this);
+          thsTxt = ths.text();
+          cde = ths.next('pre').find('code')
+          cde.html( 
+            JSON.stringify(JSON.parse(thsTxt),null,4)
+          );
+        })
+      </script>
+    {% endif %}
+
   </body>
 </html>

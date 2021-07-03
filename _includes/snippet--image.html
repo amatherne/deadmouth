@@ -1,0 +1,41 @@
+{% if img != blank %}
+  {% comment %}
+    {% raw %}
+    {% include snippet--image.html 
+      img=s.image
+      useBG=false
+      cf=false
+      customStyle=style
+      extraClass=xtra
+    %}
+    {% endraw %}
+
+  {% endcomment %}
+  <!-- snippets/snippet--image -->
+  {% assign imgAlt = img.alt %}
+  {% if alt != blank %}
+    {% assign imgAlt = alt %}
+  {% endif %}
+  {% if useBG == true %}
+    {% assign imgSrc = img | img_url: '600x600' %}
+    {% if cf == true %}
+      {% assign imgSrc = img %}
+    {% endif %}
+    <noscript>
+      <div class="bg_image {{extraClass}}" style="background-image: url({{ imgSrc }});{{customStyle}}"></div>
+    </noscript>
+    <div class="bg_image {% if cf != true %}lazyload{% endif %} {{extraClass}}"
+      style="background-image: url('{{ imgSrc }});{{customStyle}}"
+      {% if cf != true %} 
+      data-bgset="{% include bgset.html image=img %}"
+      data-sizes="auto"
+      data-parent-fit="cover"
+      {% endif %}
+      >
+    </div>
+  {% else %}
+    <div class="image-content__image-container {{extraClass}}" {% if customStyle %}style="{{customStyle}}"{% endif %}>
+      <img data-src="{{img}}" class="lazyload" src="" />
+    </div>
+  {% endif %}
+{% endif %}

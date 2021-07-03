@@ -1,5 +1,38 @@
-<section class="block block-hero-1">
-  <div class="container">
-    <h1><span class="light">{{ section.heading }}</span></h1>
-  </div>
+<!-- includes/block-hero-image -->
+
+
+{% assign s               = section %}
+
+{% assign customCSS       = s.custom_css %}
+{% assign sectionClass    = 'section--' | append: s.block | append: '--' | append: forloop.index %}
+{% assign cssClass        = '.' | append: sectionClass %}
+
+{% assign img             =  s.image | relative_url %}
+
+{% comment %}
+{% capture customCSS %}
+== {
+background:blue;
+padding: 15px;
+}
+/medium-up/ {
+== {
+padding: 30px;
+}
+}
+{% endcapture %}
+{% endcomment %}
+
+<section class="page-hero {{sectionClass}}">
+  
+  <!-- <img src="{{ img }}"> -->
+
+  {% include snippet--image.html 
+    img=img
+    useBG=false
+    cf=true
+  %}
+
+  {% include custom-css.html css=customCSS class=cssClass %}
+
 </section>

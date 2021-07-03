@@ -147,6 +147,18 @@ sup {
 
 img {
   border-style: none;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: baseline;
+  position: relative;
+}
+[data-src]::before {
+  content: '';
+  display: block;
+  padding-top: 56.25%;
+  /*background-color: blue;*/
 }
 
 /* Forms
