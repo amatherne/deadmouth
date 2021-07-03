@@ -1,5 +1,5 @@
 ---
-label: navigation-header
+label: Site Header
 hide_body: false
 fields:
 - type: text
