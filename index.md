@@ -26,7 +26,7 @@ page_sections:
   text_alignment: Center
   vertical_align: '95'
   horizontal_align: '50'
-  content_width: 400px
+  content_width: 420px
   text_color: "#FFFFFF"
   overlay_color: "#8B2F2F"
   overlay_opacity: '40'
