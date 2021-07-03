@@ -33,6 +33,14 @@ fields:
   config:
     required: false
   label: Button Url
+- name: large_images
+  type: boolean
+  label: Large Images
+  default: true
+- name: align_ctas_left
+  type: boolean
+  label: Align CTAs left
+  default: true
 - name: cta
   type: field_group_list
   fields:
