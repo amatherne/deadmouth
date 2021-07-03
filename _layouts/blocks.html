@@ -12,7 +12,7 @@
       {% include {{ section.block }}.html %}
 
       {% assign formattedJson = false %}
-      {% if section.block == 'hero-image' %}
+      {% if section.block == 'ctas' %}
         {% assign count = count | plus: 1 %}
         {% assign formattedJson = true %}
       {% endif %}
