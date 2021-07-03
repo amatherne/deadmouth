@@ -4,7 +4,7 @@ title: Homepage
 date: 2017-11-22T23:00:00.000+00:00
 page_sections:
 - template: navigation-header
-  block: header-1
+  block: header
   navigation:
   - link: "#"
     link_text: Members
@@ -71,8 +71,5 @@ page_sections:
     transform: translate(-50%,-95%);
     }
     }
-- template: simple-footer
-  block: footer-1
-  content: Made with ❤︎ in Canada
 
 ---

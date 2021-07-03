@@ -9,7 +9,7 @@
     {% assign count = 0 %}
     {% for section in page.page_sections %}
       
-      {% include block-{{ section.block }}.html %}
+      {% include {{ section.block }}.html %}
 
       {% assign formattedJson = false %}
       {% if section.block == 'hero-image' %}

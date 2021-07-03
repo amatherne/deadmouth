@@ -6,7 +6,7 @@ fields:
   hidden: true
   label: block
   name: block
-  default: header-1
+  default: header
 - type: file
   name: logo
   label: Logo

@@ -848,7 +848,7 @@ $headings--scale: 7; // amount of px headings grow from h6 to h1
     font-family: var(--font--header-stack);
     font-style: normal;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.1;
     overflow-wrap: break-word;
     word-wrap: break-word;
     font-size: $headings--font-size + $headings--scale * (6 - $i);
@@ -985,6 +985,7 @@ a {
     }
     &__menu-btn {
       display: block;
+      cursor: pointer;
       position: relative;
       height: 40px;
       width: 54px;
