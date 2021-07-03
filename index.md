@@ -38,7 +38,15 @@ page_sections:
   button_url: "#"
   alt_text: ''
   custom_size: ''
-  custom_css: ''
+  custom_css: |-
+    == h2 {
+    font-size: 50px;
+    }
+    == .rte {
+    font-size: 34px;
+    font-famiy: var(--font--header-stack);
+    font-weight: 500;
+    }
 - template: simple-footer
   block: footer-1
   content: Made with ❤︎ in Canada
