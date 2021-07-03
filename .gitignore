@@ -3,6 +3,7 @@
 node_modules/
 vendor/bundle
 
+
 # Ensure Hugo builds aren't committed to Git
 public/
 site/public/

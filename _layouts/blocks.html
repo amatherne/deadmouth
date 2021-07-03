@@ -1,5 +1,13 @@
-{% include head.html %}
-{% for section in page.page_sections %}
-{% include block-{{ section.block }}.html %}
-{% endfor %}
-{% include footer.html %}
+<!DOCTYPE html>
+<html lang="">
+
+  {% include head.html %}
+
+  <body>
+    
+    {% for section in page.page_sections %}
+      {% include block-{{ section.block }}.html %}
+    {% endfor %}
+  
+  </body>
+</html>
