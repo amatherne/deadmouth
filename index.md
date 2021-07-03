@@ -48,6 +48,13 @@ page_sections:
     font-weight: 500;
     }
 
+    == .center-content * {
+    margin: 0;
+    }
+    == .center-content *:not(:first-child) {
+    margin-top: 15px;
+    }
+
     /small/ {
     == h2 {
     font-size: 50px;
