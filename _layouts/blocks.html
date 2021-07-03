@@ -3,26 +3,26 @@
 
   {% include head.html %}
 
-  <body>
+  <body class="page--{{page.title|slugify}}">
 
     
     {% assign count = 0 %}
     {% for section in page.page_sections %}
+      
+      {% include block-{{ section.block }}.html %}
 
-      {% assign formattedJson = false %}
-      {% if section.block == 'hero-image' %}
+      {% if section.block == 'header-1' %}
         {% assign count = count | plus: 1 %}
         {% assign formattedJson = true %}
       {% endif %}
-
+      {% assign formattedJson = false %}
+    
       {% if formattedJson == true %}
         <div class="raw-json hide">{{section|jsonify}}</div>
         <pre style="max-height: 300px;overflow-x: auto;font-size: 12px;">
           <code></code>
         </pre>
       {% endif %}
-
-      {% include block-{{ section.block }}.html %}
 
     {% endfor %}
     

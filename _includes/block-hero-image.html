@@ -9,20 +9,6 @@
 
 {% assign img             =  s.image | relative_url %}
 
-{% comment %}
-{% capture customCSS %}
-== {
-background:blue;
-padding: 15px;
-}
-/medium-up/ {
-== {
-padding: 30px;
-}
-}
-{% endcapture %}
-{% endcomment %}
-
 <section class="page-hero {{sectionClass}}">
   
   {% include snippet--image.html 

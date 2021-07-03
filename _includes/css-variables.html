@@ -1,0 +1,27 @@
+<!-- includes/css-variables -->
+<style type="text/css">
+:root {
+
+  {% assign hex                         = '#090D03' %}
+  --color--black-forest                 : {{hex}};
+  --color-rgb--black-forest             : {% include hex_to_rgb.html hex=hex %};
+  
+
+  --color--site-background              : var(--color--black-forest);
+  --color--site-text                    : white;
+
+  --color--header-background            : var(--color-rgb--black-forest);
+  
+
+  --font--anton                         :'Anton', sans-serif;
+  --font--roboto                        : 'Roboto', sans-serif;
+
+  --font--base-size                     : 16px;
+  --font--site-stack                    : var(--font--roboto);
+  --font--header-stack                  : var(--font--anton);
+
+
+  --transition--header                  : .15s ease-in-out;
+
+}
+</style>

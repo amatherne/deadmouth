@@ -1,0 +1,23 @@
+{%- assign rgb = hex | remove: '#' | downcase | split: '' -%}
+{%- assign str = '' -%}
+{%- assign chars = 'a,b,c,d,e,f' | split: ',' -%}
+{%- assign remainders = '10,11,12,13,14,15' | split: ',' -%}
+{%- for i in (0..5) -%}
+    {%- assign is_char = 0 -%}
+    {%- for c in (0..5) -%}
+        {%- unless is_char == 1 -%}
+            {%- if rgb[i] == chars[c] -%}
+                {%- assign is_char = 1 -%}
+                {%- capture str -%}{{ str }}{{ remainders[c] }}|{%- endcapture -%}
+            {%- endif -%}
+        {%- endunless -%}
+    {%- endfor -%}    
+    {%- if is_char == 0 -%}
+        {%- capture str -%}{{ str }}{{ rgb[i] }}|{%- endcapture -%}
+    {%- endif -%}
+{%- endfor -%}
+{%- assign rgb = str | split: "|" -%}
+{%- assign r = rgb[0] | times: 16 | plus: rgb[1] -%}
+{%- assign g = rgb[2] | times: 16 | plus: rgb[3] -%}
+{%- assign b = rgb[4] | times: 16 | plus: rgb[5] -%}
+{{ r }}, {{ g }}, {{ b }}

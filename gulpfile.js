@@ -97,7 +97,7 @@ gulp.task("default", function () {
 
   const jekyll = child.spawn('jekyll', ['serve',
     '--watch',
-    '--incremental',
+    // '--incremental',
     '--drafts'
   ]);
 

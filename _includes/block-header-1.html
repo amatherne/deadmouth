@@ -1,17 +1,63 @@
-<header class="block block-header-1">
+<!-- include/block-header-1 -->
 
-  <div class="block-header-1--logo">
-    <a href="{{ "/" | relative_url }}">
-      <img src="{{ section.logo | relative_url }}" alt="{{ site.title }}">
-    </a>
+{% assign s               = section %}
+
+{% assign homeUrl         = '/' | relative_url %}
+{% assign homeUrl         = '#top' %}
+
+{% assign siteTtl         = site.title %}
+
+{% assign siteLogo        = s.logo | relative_url %}
+
+{% assign customCSS       = s.custom_css %}
+{% assign sectionClass    = 'section--' | append: s.block | append: '--' | append: forloop.index %}
+{% assign cssClass        = '.' | append: sectionClass %}
+
+
+<header class="site-header {{sectionClass}}">
+
+  <div class="page-width with-padding">
+    <div class="site-header--container">
+        
+      <div class="site-header--logo">
+        <a href="{{ homeUrl }}">
+          <!-- <img src="{{ siteLogo }}" alt="{{ siteTtl }}"> -->
+          <h1 class="visually-hidden">
+            {{siteTtl}}
+          </h1>
+          <span class="h2 site-header--title">
+            DM
+          </span>
+        </a>
+      </div>
+
+      <nav class="site-header--nav">
+        <input type="checkbox" name="open-menu" id="open-menu">
+        <label class="site-header--nav__menu-btn" for="open-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="visually-hidden">Menu</span>
+        </label>
+        <div class="site-header--nav__drawer">      
+          <ul class="site-header--nav__items">
+            {% for nav_item in section.navigation %}
+              <li class="site-header--nav__item {% if page.url == nav_item.link %}active{% endif %}">
+                <a href="{{ nav_item.link | relative_url }}">
+                  {{ nav_item.link_text }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </nav>
+
+    </div>
   </div>
 
-  <nav class="block-header-1--nav">
-    <ul>
-      {% for nav_item in section.navigation %}
-      <li class="nav-item {% if page.url == nav_item.link %}active{% endif %}"><a href="{{ nav_item.link | relative_url }}">{{ nav_item.link_text }}</a></li>
-      {% endfor %}
-    </ul>
-  </nav>
+
+  {% include custom-css.html css=customCSS class=cssClass %}
 
 </header>
+
+<div class="header-clear" style="min-height:var(--header-height,50px);"></div>
