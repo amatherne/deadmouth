@@ -40,7 +40,7 @@ page_sections:
   custom_size: ''
   custom_css: |-
     == h2 {
-    font-size: 50px;
+    font-size: 90px;
     }
     == .rte {
     font-size: 34px;
@@ -49,6 +49,9 @@ page_sections:
     }
 
     /small/ {
+    == h2 {
+    font-size: 50px;
+    }
     == .center-content {
     top: 95%;
     left: 50%;
