@@ -56,6 +56,9 @@ page_sections:
     }
 
     /small/ {
+    == .center-content *:not(:first-child) {
+    margin-top: 10px;
+    }
     == h2 {
     font-size: 55px;
     }
