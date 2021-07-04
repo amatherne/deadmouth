@@ -96,5 +96,9 @@ page_sections:
   button_text: ''
   large_images: true
   align_ctas_left: true
+  custom_css: |-
+    == .inner-container .rte {
+    text-transform:uppercase;
+    }
 
 ---
