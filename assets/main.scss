@@ -965,13 +965,15 @@ a {
   z-index: 99999;
   background-color: rgba(var(--color--header-background),0);
   border-bottom: 1px solid transparent;
-  transition: background-color var(--transition--header);
+  transition: 
+    border-color var(--transition--header),
+    background-color var(--transition--header);
 
   &.is-scrolled,
   &:focus-within,
   &:hover {
     background-color: rgba(var(--color--header-background),1);
-    border-bottom-color: rgba(white,0.5);
+    border-bottom-color: rgba(white,0.25);
   }
 
   .page-width {
