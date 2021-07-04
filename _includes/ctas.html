@@ -5,13 +5,16 @@
 {% assign ttl                     = s.section_title | default: '' %}
 {% assign txt                     = s.section_text | default: '' %}
 
-{% assign btn_url                 = s.button_url | default: '' %}
-{% assign btn_txt                 = s.button_text | default: '' %}
-{% assign btnStyle                = s.btn_style %}
+{% assign lnk_url                 = s.button_url | default: '' %}
+{% assign lnk_txt                 = s.button_text | default: '' %}
 
-{% assign use_btn                 = false %}
-{% if btn_url != '' and btn_txt != '' %}
-    {% assign use_btn             = true %}
+
+{% assign large_images            = s.large_images %}
+{% assign align_ctas_left         = s.align_ctas_left %}
+
+{% assign use_lnk                 = false %}
+{% if lnk_url != '' and lnk_txt != '' %}
+    {% assign use_lnk             = true %}
 {% endif %}
 
 {% assign customCSS               = s.custom_css %}
@@ -70,7 +73,7 @@
         {% endif %}
 
 
-        <div class="grid__item {{width}} {% if align_boxes_left == true %}text-left{% endif %}">
+        <div class="grid__item {{width}} {% if align_ctas_left == true %}text-left{% endif %}">
           <{{el}} {{attr}} class="inner-container">
             
             {% include snippet--image.html img=img useBG=useBG cf=cf extraClass=extraClass %}

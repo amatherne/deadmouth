@@ -74,8 +74,8 @@ page_sections:
 - template: ctas
   block: ctas
   section_title: Members
-  section_text: testing
-  button_url: "/"
+  section_text: ''
+  button_url: ''
   cta:
   - image: "/uploads/2021/07/03/matt.png"
     title: Matt Fourman
@@ -93,7 +93,7 @@ page_sections:
     title: Nicolai Cespedes
     text: Studio Guitarist
     link: ''
-  button_text: text
+  button_text: ''
   large_images: true
   align_ctas_left: true
 

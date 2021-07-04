@@ -1103,47 +1103,55 @@ a {
 
 
 .section--title {
-  margin: 0 0 var(--base-gutter--double);
+  margin: 0 0 var(--base-gutter);
 
-  &:last-child {
+  > &:last-child {
     margin-bottom: 0;
   }
 
-  *:not(:last-child) {
+  > *:not(:last-child) {
     margin-bottom: var(--base-gutter);
   }
 
 
-  &.inline--link {
+  // &.inline--link {
     @include mq($medium-up) {
-      display: flex;
-      flex-direction: wrap;
-      justify-content: space-between;
-      align-items: center;
-      margin: 0;
+      @extend .medium-up--text-left;
+      // display: flex;
+      // flex-direction: wrap;
+      // justify-content: space-between;
+      // align-items: center;
+      // margin: 0;
 
-      h2 {
-        margin: 0 0 var(--base-gutter--half);
-      }
+      // h2 {
+      //   margin: 0 0 var(--base-gutter--half);
+      // }
 
-      .text-link {
-        margin: 0 0 var(--base-gutter--half);
-        display: block;
+      // .text-link {
+      //   margin: 0 0 var(--base-gutter--half);
+      //   display: block;
+      // }
+
+      > * {
+        margin: 0;
+        &:not(:last-child) {
+          margin-bottom: var(--base-gutter--half);
+        } 
       }
 
 
     }
-  }
+  // }
 
-  &:not(.inline--link) {
-    @include mq($medium-up) {
+  // &:not(.inline--link) {
+    // @include mq($medium-up) {
 
-      h2 {
-        font-size: 35px;
-      }
+    //   h2 {
+    //     font-size: 35px;
+    //   }
 
-    }
-  }
+    // }
+  // }
 }
 
 .section--ctas {
@@ -1206,18 +1214,24 @@ a {
       max-width: 150px;
     }
 
-
-
-    .image-content__image-container:not(.icon-image)+* {
-      margin-top: 20px;
+    > * {
+      margin: 0;
+      &:not(:last-child) {
+        margin-bottom: var(--base-gutter--quarter);
+      } 
     }
 
-    *:not(:last-child) {
-      margin-bottom: var(--base-gutter--half);
+    .image-content__image-container:not(.icon-image)+* {
+      margin-top: var(--base-gutter--half);
     }
 
     h3 {
-      font-size: 24px;
+      font-size: 20px;
+    }
+    .rte {
+      font:{
+        size: 15px;
+      };
     }
   }
 
