@@ -41,6 +41,15 @@ fields:
   type: boolean
   label: Align CTAs left
   default: true
+- name: custom_css
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Custom CSS
 - name: cta
   type: field_group_list
   fields:
