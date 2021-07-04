@@ -98,7 +98,6 @@ page_sections:
   align_ctas_left: true
   custom_css: |-
     == .inner-container h3,
-    == .inner-container .h3,
     == .inner-container .rte {
     text-transform:uppercase;
     }
