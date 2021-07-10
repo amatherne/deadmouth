@@ -927,6 +927,105 @@ a {
 
 
 
+.match-row.grid,
+.match-row.grid_no_gutter {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    // grid-template-columns: 50% 50%;
+
+    --grid_margin          : 15px;
+    --grid_margin_neg      : calc( (var(--grid_margin)) * -1 );
+
+    > .grid__item {
+        width: 100%;
+        grid-column-end: span 1;
+        > div {
+            height: 100%;
+        }
+    }
+    &.grid {
+        margin-bottom: var(--grid_margin_neg);
+        margin-left: var(--grid_margin_neg);
+        > .grid__item {
+            padding-left: var(--grid_margin); 
+            margin-bottom: var(--grid_margin);
+        }
+    }
+    .product-grid-item {
+        .product-form,
+        .btn {
+            margin-top: auto;
+        }
+    }
+    @include mq($narrow) {
+        > .grid__item {
+            grid-column-end: span 2;
+        }
+    }
+
+
+    @include mq($small) {
+        > .collection-cta-item {
+            grid-column-end: span 2;
+        }
+    }
+    @include mq($medium-up) {
+        grid-template-columns: repeat(60, 1fr); // 60 for columns bc it's evenly dividable by 2, 3, 4, and 5
+        > .medium--one-half,
+        > .medium-up--one-half {
+            grid-column-end: span 30;
+        }
+        > .medium--one-third,
+        > .medium-up--one-third {
+            grid-column-end: span 20;
+        }
+        > .medium--two-thirds,
+        > .medium-up--two-thirds {
+            grid-column-end: span 40;
+        }
+        > .medium--one-quarter,
+        > .medium-up--one-quarter {
+            grid-column-end: span 15;
+        }
+        > .medium--one-fifth,
+        > .medium-up--one-fifth {
+            grid-column-end: span 12;
+        }
+        > .medium--two-fifths,
+        > .medium-up--two-fifths {
+            grid-column-end: span 24;
+        }
+    }
+    @include mq($large-up) {
+        > .large--one-half,
+        > .large-up--one-half {
+            grid-column-end: span 30;
+        }
+        > .large--one-third,
+        > .large-up--one-third {
+            grid-column-end: span 20;
+        }
+        > .large--two-thirds,
+        > .large-up--two-thirds {
+            grid-column-end: span 40;
+        }
+        > .large--one-quarter,
+        > .large-up--one-quarter {
+            grid-column-end: span 15;
+        }
+        > .large--one-fifth,
+        > .large-up--one-fifth {
+            grid-column-end: span 12;
+        }
+        > .large--two-fifths,
+        > .large-up--two-fifths {
+            grid-column-end: span 24;
+        }
+    }
+}
+
+
+
 // remove header clear
 .page--homepage {
   .header-clear {
@@ -1450,6 +1549,36 @@ a {
           grid-area: var(--left-grid);
         }
       }
+    }
+  }
+}
+
+
+
+.section--music-cta {
+  position: relative;
+  padding: var(--base-gutter--double) 0;
+  z-index: 1;
+
+  .grid__item {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .row-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: auto;
+    padding: var(--base-gutter);
+
+    &:not(.center-image) {
+      width: min(100%,350px);
+      margin: 0 auto;
     }
   }
 }
