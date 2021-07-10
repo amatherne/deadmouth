@@ -166,7 +166,7 @@ page_sections:
     link: ''
   section_text: ''
   row_button_text: ''
-  row_button_url: ''
+  row_button_url: "/test"
   custom_css: ''
 
 ---
