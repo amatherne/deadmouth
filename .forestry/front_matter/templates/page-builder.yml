@@ -20,5 +20,6 @@ fields:
   - navigation-header
   - hero-image
   - ctas
+  - two-grid
 pages:
 - index.md
