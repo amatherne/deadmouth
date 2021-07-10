@@ -28,16 +28,30 @@ fields:
     schema:
       format: html-blocks
   label: Section Text
-- name: button_text
+- name: row_title
   type: text
   config:
     required: false
-  label: Button Text
-- name: button_url
+  label: Row Title
+- name: row_text
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: html-blocks
+  label: Row Text
+- name: row_button_text
   type: text
   config:
     required: false
-  label: Button Url
+  label: Row Button Text
+- name: row_button_url
+  type: text
+  config:
+    required: false
+  label: Row Button Url
 - name: custom_css
   type: textarea
   default: ''
