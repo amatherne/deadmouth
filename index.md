@@ -135,7 +135,7 @@ page_sections:
     button_text: ''
     button_url: ''
     text_color: "#000000"
-    background_color: '#FFFFFF'
+    background_color: "#FFFFFF"
     button_colors:
       text: ''
       background: ''
@@ -147,6 +147,26 @@ page_sections:
     button_style: ''
   reverse: false
   hide_images: false
+  custom_css: ''
+- template: cta-music
+  block: cta-music
+  section_title: Music
+  image: "/uploads/2021/07/10/deadmouth-art.png"
+  row_title: Mind Your Troubles
+  row_text: "<p>Available Now!</p>"
+  link_row:
+  - image: "/uploads/2021/07/10/applemusiclogo.svg"
+    text: ''
+    link: ''
+  - image: "/uploads/2021/07/10/spotifylogo.svg"
+    text: ''
+    link: ''
+  - image: "/uploads/2021/07/10/youtubelogo.svg"
+    text: ''
+    link: ''
+  section_text: ''
+  row_button_text: ''
+  row_button_url: ''
   custom_css: ''
 
 ---
