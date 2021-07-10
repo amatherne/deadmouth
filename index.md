@@ -127,7 +127,7 @@ page_sections:
       }
     button_style: ''
   - image: "/uploads/2021/07/10/two-grid.png"
-    title: Bio
+    title: Bio 2
     text: |-
       But with the blast shield down, I can't even see! How am I supposed to fight? Escape is not his plan. I must face him, alone. What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like…suicide.
 
