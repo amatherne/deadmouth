@@ -101,5 +101,33 @@ page_sections:
     == .inner-container .rte {
     text-transform:uppercase;
     }
+- template: two-grid
+  block: two-grid
+  row:
+  - image: "/uploads/2021/07/10/two-grid.png"
+    title: Bio
+    text: |-
+      But with the blast shield down, I can't even see! How am I supposed to fight? Escape is not his plan. I must face him, alone. What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like…suicide.
+
+      You're all clear, kid. Let's blow this thing and go home! I have traced the Rebel spies to her. Now she is my only link to finding their secret base. Leave that to me. Send a distress signal, and inform the Senate that all on board were killed.
+    button_text: ''
+    button_url: ''
+    text_color: "#FFFFFF"
+    background_color: ''
+    button_colors:
+      text: ''
+      background: ''
+      border: ''
+      hover_-_text: ''
+      hover_-_background: ''
+      hover_-_border: ''
+    custom_css: |-
+      == h2 {
+      text-transform: uppercase;
+      }
+    button_style: ''
+  reverse: false
+  hide_images: false
+  custom_css: ''
 
 ---
