@@ -136,30 +136,15 @@ $grid-breakpoints: (
         3. Apply a negative `margin-left` to negate the columns' gutters.
 ==============================================================================*/
 
-// Allows a repetion of the base grid settings
-%grid-vars {
-  --base-gutter: 30px;
-
-  --base-gutter--double: calc(var(--base-gutter) * 2);
-  --base-gutter--trip: calc(var(--base-gutter) * 3);
-  --base-gutter--quad: calc(var(--base-gutter) * 4);
-
-  --base-gutter--half: calc(var(--base-gutter) / 2);
-  --base-gutter--quarter: calc(var(--base-gutter) / 4);
-
-  --grid-gutter: var(--base-gutter);
-  --grid-gutter--mobile: var(--base-gutter--half);
-  --grid-gutter--neg: calc(var(--grid-gutter) * -1);
-}
 
 // Gives access to whole site
 :root {
-  @extend %grid-vars;
+  
 }
 
 
 .grid {
-  @extend %grid-vars;
+  
 
   @include clearfix();
   list-style: none;
@@ -282,7 +267,7 @@ $grid-breakpoints: (
 }
 
 .page-width {
-  @extend %grid-vars;
+  
 
   width: 100%;
   max-width: $grid-widescreen;
@@ -1271,3 +1256,200 @@ a {
   }
 }
 
+
+
+
+
+.section--two-grid {
+  --left-grid: 1 / 1 / 1 / 1;
+  --right-grid: 1 / 2 / 1 / 2;
+  padding: 0;
+
+
+  h3 {
+    // font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  h2 {
+    // font-size: 32px;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .rte * {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 0;
+
+    p {
+      margin-bottom: 15px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .btn {
+    margin-top: 1.5em;
+  }
+
+  .grid_no_gutter {
+    .text-block {
+      padding: 2em 1em;
+      // padding: 2em 0;
+    }
+  }
+
+
+  &.hide-images {
+    .image-block {
+      display: none;
+    }
+    .text-block {
+
+    }
+  }
+
+  @include mq($medium-up) {
+    
+    &.hide-images {
+      .text-block {
+        min-height: clamp(500px,50vw,100vh);
+      }
+      // grid-auto-columns: 50% 50%;
+      // display: grid;
+      // align-items:center;
+
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+
+      .grid_no_gutter {
+        width: 50%;
+        
+        .grid__item {
+          grid-area: inset !important;
+          grid-column: 1 / 3 !important;
+          width: 100% !important;
+        }
+
+        &:nth-of-type(odd) {
+          .grid__item {
+            justify-content: flex-end;
+          }
+          &:last-child {
+            width: 100%;
+            .grid__item {
+              justify-content: center;
+            }
+          }
+        }
+        &:nth-of-type(even) {
+          .grid__item {
+            justify-content: flex-start;
+          }
+        }
+      }
+    }
+
+
+    h2 {
+      font-size: 65px;
+
+    }
+
+    .rte * {
+      font-size: 24px;
+    }
+
+
+
+    .grid_no_gutter {
+      grid-auto-columns: 50% 50%;
+      display: grid;
+      align-items: center;
+
+      .grid__item {
+        width: 100%;
+      }
+
+
+
+      .image-block {
+        grid-area: var(--left-grid);
+        position: relative;
+        overflow: hidden;
+        // padding-top:50%;
+        height: 100%;
+        padding-top: 80%;
+
+        .video-ratio,
+        .video-inline,
+        .rimage-outer-wrapper,
+        .rimage-wrapper,
+        .image-content__image-container,
+        .image-content__image-wrapper,
+        .article__grid-image-container,
+        .article__grid-image-wrapper {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          padding: 0 !important;
+        }
+
+        .video-ratio,
+        .video-inline {
+          .wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .text-block {
+        grid-area: var(--right-grid);
+        padding: 4em 3em;
+        display: flex;
+        height: 100%;
+
+        .text-content {
+          max-width: calc(690px - 6em);
+          align-self: center;
+        }
+
+        &.full-width {
+          grid-area: 1 / span 2 / 1 / span 1;
+
+          .text-content {
+            max-width: 700px;
+            margin: 0 auto;
+          }
+        }
+      }
+
+      &.reverse {
+        .image-block {
+          grid-area: var(--right-grid);
+        }
+
+        .text-block {
+          justify-content: flex-end;
+          grid-area: var(--left-grid);
+        }
+      }
+    }
+  }
+}

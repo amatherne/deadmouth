@@ -16,4 +16,5 @@ defaults:
 plugins:
   - jekyll-feed
   - jekyll-menus
+  - liquid_pluralize
 

@@ -1,25 +1,26 @@
 <!-- include/ctas -->
 
-{% assign s                       = section %}
+{% assign s             = section %}
 
-{% assign ttl                     = s.section_title | default: '' %}
-{% assign txt                     = s.section_text | default: '' %}
+{% assign ttl           = s.section_title | default: '' %}
+{% assign txt           = s.section_text | default: '' %}
 
-{% assign lnk_url                 = s.button_url | default: '' %}
-{% assign lnk_txt                 = s.button_text | default: '' %}
+{% assign lnk_url       = s.button_url | default: '' %}
+{% assign lnk_txt       = s.button_text | default: '' %}
 
 
-{% assign large_images            = s.large_images %}
-{% assign align_ctas_left         = s.align_ctas_left %}
+{% assign large_images  = s.large_images %}
+{% assign align_ctas_l  = s.align_ctas_left %}
 
-{% assign use_lnk                 = false %}
+{% assign use_lnk       = false %}
 {% if lnk_url != '' and lnk_txt != '' %}
-    {% assign use_lnk             = true %}
+    {% assign use_lnk   = true %}
 {% endif %}
 
-{% assign customCSS               = s.custom_css %}
-{% assign sectionClass            = 'section--' | append: s.block | append: '--' | append: forloop.index %}
-{% assign cssClass                = '.' | append: sectionClass %}
+{% assign customCSS     = s.custom_css %}
+{% assign sectionID     = s.block | append: '--' | append: forloop.index %}
+{% assign sectionClass  = 'section--' | append: sectionID %}
+{% assign cssClass      = '.' | append: sectionClass %}
 
 {% case section.cta.size %}
     {% when 1 %}{%- assign width = '' -%}
@@ -28,7 +29,7 @@
     {% else %}{%- assign width = 'large-up--one-third' -%}
 {% endcase %}
 
-<header class="section--ctas {{sectionClass}}">
+<section id="{{sectionID}}" class="section--ctas {{sectionClass}}">
 
   <div class="page-width with-padding">
 
@@ -101,5 +102,5 @@
 
   {% include custom-css.html css=customCSS class=cssClass %}
 
-</header>
+</section>
 

@@ -1,0 +1,138 @@
+
+{% assign s             = section %}
+
+{% assign isRev         = s.reverse %}
+{% assign hideImages    = s.hide_images %}
+
+{% assign prevImgs      = '' %}
+{% assign imageRow      = '' %}
+{% assign splt          = '<!--SPLIT-->' %}
+
+{% assign count         = 0 %}
+{% if isRev == true or isRev == 'true' %}
+    {% assign count     = 1 %}
+{% endif %}
+
+{% assign sectionCSS    = s.custom_css %}
+{% assign sectionID     = s.block | append: '--' | append: forloop.index %}
+{% assign sectionClass  = 'section--' | append: sectionID %}
+{% assign cssClass      = '.' | append: sectionClass %}
+
+{% if s.row.size > 0 %}
+<!-- include/two-grid -->
+  {% for c in s.row %}
+
+    {% assign img             = c.image | default: '' %}
+
+    {% assign ttl             = c.title | default: '' %}
+    {% assign txt             = c.text | default: '' %}
+
+    {% assign lnkTxt          = c.button_text | default: '' %}
+    {% assign lnkUrl          = c.button_url | default: '' %}
+    {% assign txtClr          = c.text_color %}
+    {% assign bgClr           = c.background_color %}
+    {% assign btnStyle        = c.button_style %}
+
+    {% assign blockCustomCSS  = c.custom_css %}
+
+    {% assign extraClass      = '' %}
+    {% assign useBG           = false %}
+    {% assign cf              = true %}
+
+    {% assign mainImg         = '' %}
+    {% assign rawImg          = b.image%}
+
+    {% assign count           = count | plus: 1 %}
+    {% assign rev             = count | modulo: 2 | pluralize: 'reverse' %}
+
+    {% assign blkClass        = 'block--' | append: sectionID | append: '--' | append: forloop.index %}
+    {% assign blkCssClass     = '.' | append: blkClass %}
+
+    {% capture blockCSS %}
+      {{blkCssClass}} {
+        background-color: {{bgClr}};
+      }
+      {{blkCssClass}} h2,
+      {{blkCssClass}} h3,
+      {{blkCssClass}} .rte, 
+      {{blkCssClass}} .rte * {
+        color: {{txtClr}};
+      }
+      {% if btnStyle == 'custom' %}
+      {{blkCssClass}} .btn {
+        --color-btn-primary              : {{i.color_button}} ;
+        --color-btn-primary-border       : {{i.color_button_border}} ;
+        --color-btn-primary-text         : {{i.color_button_text}} ;
+        --color-btn-primary-hover        : {{i.color_button_hover}} ;
+        --color-btn-primary-border-hover : {{i.color_button_border_hover}} ;
+        --color-btn-primary-text-hover   : {{i.color_button_text_hover}} ;
+      }
+      {% endif %}
+    {% endcapture %}
+
+    {% if rawImg != '' or hasVid != '' %}
+      {% capture mainImg %}
+        <div class="grid__item medium-up--one-half image-block">
+
+          {% include snippet--image.html img=rawImg useBG=useBG cf=cf extraClass=extraClass %}
+
+        </div>
+      {% endcapture %}
+    {% endif %}
+
+    {% unless topTtl == '' and ttl == '' and txt == '' %}
+      {% capture imageRow %}
+        {{imageRow}}
+        <div class="grid_no_gutter {{rev}} {{blkClass}}">
+          {{mainImg}}
+          <div class="grid__item {% if mainImg != '' %}medium-up--one-half{% else %}full-width{% endif %} text-block text-{{forloop.index}}">
+            <div class="text-content">
+              {% if topTtl != '' %}
+                <h3>{{topTtl}}</h3>
+              {% endif %}
+              {% if ttl != '' %}
+                <h2>{{ttl}}</h2>
+              {% endif %}
+              {% if txt != '' %}
+                <div class="rte">{{txt}}</div>
+              {% endif %}
+              {% if lnkUrl != '' and lnkTxt != '' %}
+                <a class="btn btn--{{btnStyle}}" href="{{lnkUrl}}">
+                  <span>{{lnkTxt}}</span>
+                </a>
+              {% endif %}
+            </div>
+          </div>
+          {% assign customCSS = blockCSS %}
+          {% assign cssClass = blkCssClass %}
+          {% include custom-css.html css=customCSS class=cssClass %}
+
+          {% assign customCSS = blockCustomCSS %}
+          {% assign cssClass = blkCssClass %}
+          {% include custom-css.html css=customCSS class=cssClass %}
+        </div>
+        {{splt}}
+      {% endcapture %}
+    {% endunless %}
+
+    {% assign mainImg  = '' %}
+    {% assign ttl      = '' %}
+    {% assign txt      = '' %}
+    {% assign topTtl   = '' %}
+    {% assign txtClr   = '' %}
+    {% assign bgClr    = '' %}
+    {% assign lnkTxt   = '' %}
+    {% assign lnkUrl   = '' %}
+  {% endfor %}
+
+  <section id="{{sectionID}}" class="section--two-grid {{sectionClass}} {% if hideImages == true %}hide-images{% endif %}">
+
+    {% assign customCSS = sectionCSS %}
+    {% assign cssClass = sectionClass %}
+    {% include custom-css.html css=customCSS class=cssClass %}
+    
+    {{imageRow|split:splt|uniq}}
+
+  </section>
+{% endif %}
+
