@@ -21,5 +21,6 @@ fields:
   - hero-image
   - ctas
   - two-grid
+  - cta-music
 pages:
 - index.md
