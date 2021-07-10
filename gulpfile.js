@@ -93,7 +93,6 @@ gulp.task("default", function () {
 
   gulp.watch(allCSS, gulp.series(["sass"]));
   gulp.watch(mainJS, gulp.series(['scripts'])); 
-  // gulp.watch(['jekyll']);
 
   const jekyll = child.spawn('jekyll', ['serve',
     '--watch',

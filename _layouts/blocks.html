@@ -11,11 +11,13 @@
       
       {% include {{ section.block }}.html %}
 
+      {% assign formattedJson = false %}
       {% if section.block == 'ctas' %}
+      {% endif %}
+      {% if section.block != 'header' %}
         {% assign count = count | plus: 1 %}
         {% assign formattedJson = true %}
       {% endif %}
-      {% assign formattedJson = false %}
     
       {% if formattedJson == true %}
         <div class="raw-json hide">{{section|jsonify}}</div>
