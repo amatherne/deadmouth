@@ -1,4 +1,145 @@
 ---
 label: Two Grid
 hide_body: true
-fields: []
+fields:
+- name: block
+  type: text
+  config:
+    required: false
+  label: Block
+  hidden: true
+  default: two-grid
+- name: reverse
+  type: boolean
+  label: Reverse
+- name: hide_images
+  type: boolean
+  label: Hide Images
+- name: custom_css
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Custom CSS
+- name: row
+  type: field_group_list
+  fields:
+  - name: image
+    type: file
+    config:
+      maxSize: 64
+    label: Image
+  - name: title
+    type: text
+    config:
+      required: false
+    label: Title
+  - name: text
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: true
+      schema:
+        format: markdown
+    label: Text
+  - name: button_text
+    type: text
+    config:
+      required: false
+    label: Button Text
+  - name: button_url
+    type: text
+    config:
+      required: false
+    label: Button Url
+  - name: text_color
+    type: color
+    label: Text Color
+    config:
+      required: false
+      color_format: Hex
+    default: "#000000"
+  - name: background_color
+    type: color
+    label: Background Color
+    config:
+      required: false
+      color_format: Hex
+    default: "#FFFFFF"
+  - name: button_style
+    type: select
+    default: []
+    config:
+      required: false
+      options:
+      - Primary
+      - Secondary
+      - Custom
+      source:
+        type: simple
+        section: 
+        file: 
+        path: 
+    label: Button Style
+  - name: button_colors
+    type: field_group
+    config: {}
+    fields:
+    - name: text
+      type: color
+      label: Text
+      config:
+        required: false
+        color_format: Hex
+    - name: background
+      type: color
+      label: Background
+      config:
+        required: false
+        color_format: Hex
+    - name: border
+      type: color
+      label: Border
+      config:
+        required: false
+        color_format: Hex
+    - name: hover_-_text
+      type: color
+      config:
+        required: false
+        color_format: Hex
+      label: Hover - Text
+    - name: hover_-_background
+      type: color
+      label: Hover - Background
+      config:
+        required: false
+        color_format: Hex
+    - name: hover_-_border
+      type: color
+      label: Hover - Border
+      config:
+        required: false
+        color_format: Hex
+    label: Button Colors
+    showOnly:
+      field: button_style
+      value: Custom
+  - name: custom_css
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: false
+      schema:
+        format: markdown
+    label: Custom CSS
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Row
