@@ -9,6 +9,11 @@ fields:
   label: Block
   hidden: true
   default: cta-music
+- name: image
+  type: file
+  config:
+    maxSize: 64
+  label: Image
 - name: section_title
   type: text
   config:
@@ -33,11 +38,15 @@ fields:
   config:
     required: false
   label: Button Url
-- name: image
-  type: file
+- name: custom_css
+  type: textarea
+  default: ''
   config:
-    maxSize: 64
-  label: Image
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Custom CSS
 - name: link_row
   type: field_group_list
   fields:
