@@ -21,6 +21,7 @@ group :jekyll_plugins do
   gem "jekyll-menus"
   gem "liquid_pluralize"
   gem 'jekyll-loading-lazy'
+  gem 'jekyll-responsive-image', '~> 1.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

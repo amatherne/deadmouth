@@ -18,4 +18,5 @@ plugins:
   - jekyll-menus
   - liquid_pluralize
   - jekyll-loading-lazy
+  - jekyll-responsive-image
 
