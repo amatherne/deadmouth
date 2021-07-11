@@ -138,15 +138,28 @@ $grid-breakpoints: (
         3. Apply a negative `margin-left` to negate the columns' gutters.
 ==============================================================================*/
 
+%grid-vars {
+  --base-gutter: 30px;
 
+  --base-gutter--double: calc(var(--base-gutter) * 2);
+  --base-gutter--trip: calc(var(--base-gutter) * 3);
+  --base-gutter--quad: calc(var(--base-gutter) * 4);
+
+  --base-gutter--half: calc(var(--base-gutter) / 2);
+  --base-gutter--quarter: calc(var(--base-gutter) / 4);
+
+  --grid-gutter: var(--base-gutter);
+  --grid-gutter--mobile: var(--base-gutter--half);
+  --grid-gutter--neg: calc(var(--grid-gutter) * -1);
+}
 // Gives access to whole site
 :root {
-  
+  @extend %grid-vars;
 }
 
 
 .grid {
-  
+  @extend %grid-vars;
 
   @include clearfix();
   list-style: none;
@@ -173,6 +186,7 @@ $grid-breakpoints: (
 
 .grid.no_gutter,
 .grid_no_gutter {
+  @extend %grid-vars;
   @include clearfix();
   list-style: none;
   margin: 0;
@@ -186,6 +200,7 @@ $grid-breakpoints: (
 }
 
 .grid__item {
+  
   width: 100%;
   // float: initial;
   display: inline-block;
@@ -277,7 +292,10 @@ $grid-breakpoints: (
 
   &.with-padding {
     @include mq($ex-large-down) {
-      padding: 0 var(--grid-gutter);
+      padding: 0 var(--base-gutter);
+    }
+    @include mq($small) {
+      padding: 0 var(--base-gutter--half);
     }
   }
 }
