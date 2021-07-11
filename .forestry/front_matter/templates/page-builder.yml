@@ -22,5 +22,6 @@ fields:
   - ctas
   - two-grid
   - cta-music
+  - mosaic
 pages:
 - index.md
