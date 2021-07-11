@@ -1,8 +1,7 @@
-{% comment %}
 
 {% assign s             = section %}
 
-{% assign lp            = s.link_row %}
+{% assign lp            = s.item %}
 
 {% assign img           = s.image | default: '' %}
 
@@ -12,7 +11,7 @@
 {% assign rowTtl        = s.row_title | default: '' %}
 {% assign rowTxt        = s.row_text | default: '' %}
 
-
+{% assign blockCSS      = '' %}
 
 {% assign prevImgs      = '' %}
 {% assign imageRow      = '' %}
@@ -37,101 +36,194 @@
   {% assign rightCol    = 'medium-up--one-third' %}
 {% endif %}
 
-<!-- include/cta-music -->
+<!-- include/mosaic -->
 
-<section id="{{sectionID}}" class="section--music-cta {{sectionClass}} ">
-
-
-
-  <div class="page-width">
-  
-    {% if secTtl != ''  or secTxt != '' %}
-      <div class="section--title text-center {% if secTtl != '' and secTxt == '' %}inline--link{% endif %}">
-        {% if secTtl != '' %}
-          <h2>{{secTtl}}</h2>
-        {% endif %}
-        {% if secTxt != '' %}
-          <div class="rte">{{secTxt}}</div>
-        {% endif %}
-      </div>
-    {% endif %}
+{% if lp.size > 0 %}
+  <section id="{{sectionID}}" class="section--mosaic {{sectionClass}} ">
 
 
-    <div class="grid_no_gutter vert-mid match-row">
-      <div class="grid__item {{leftCol}}">
-        {% if rowTtl != ''  or rowTxt != '' %}
-          <div class="row-container">
-            {% if rowTtl != '' %}
-              <h3 class="h4">{{rowTtl}}</h3>
-            {% endif %}
-            {% if rowTxt != '' %}
-              <div class="rte">{{rowTxt}}</div>
-            {% endif %}
-          </div>
-        {% endif %}
-      </div>
-      <div class="grid__item {{centerCol}}">
-        <div class="row-container center-image">
-          {% include snippet--image.html img=img useBG=useBG cf=cf extraClass=extraClass %}
+
+    <div class="page-width">
+    
+      {% if secTtl != ''  or secTxt != '' %}
+        <div class="section--title text-center {% if secTtl != '' and secTxt == '' %}inline--link{% endif %}">
+          {% if secTtl != '' %}
+            <h2>{{secTtl}}</h2>
+          {% endif %}
+          {% if secTxt != '' %}
+            <div class="rte">{{secTxt}}</div>
+          {% endif %}
         </div>
-      </div>
-      
-      {% if lp.size > 0 %}
-        <div class="grid__item {{rightCol}}">
-          <div class="row-container">
-            {% for c in lp %}
-
-              {% assign img             = c.image | default: '' %}
-              {% assign txt             = c.text | default: '' %}
-
-              {% assign lnk             = c.link | default: '' %}
-
-              {% assign extraClass      = '' %}
-              {% assign useBG           = false %}
-              {% assign cf              = true %}
+      {% endif %}
 
 
-              {% assign blkClass        = 'block--' | append: sectionID | append: '--' | append: forloop.index %}
-              {% assign blkCssClass     = '.' | append: blkClass %}
+      <div class="masonry-container">
+        <div class="grid_no_gutter vert-top ">
+        
 
-              {% assign el              = 'div' %}
-              {% assign attr            = '' %}
-              {% if lnk != '' %}
-                  {% assign el          = 'a' %}
-                  {% assign attr        = 'href="' | append: lnk | append: '"' %}
+          {% for c in lp %}
+
+            {% assign img             = c.image | default: '' %}
+            {% assign ttl             = c.title | default: '' %}
+            {% assign txt             = c.text | default: '' %}
+
+            {% assign btn_url         = c.button_url %}
+            {% assign btn_txt         = c.button_text %}
+            
+            {% assign use_btn         = false %}
+            {% if btn_url != '' and btn_txt != '' %}
+              {% assign use_btn       = true %}
+            {% endif %}
+
+            {% assign extraClass      = '' %}
+            {% assign useBG           = false %}
+            {% assign cf              = true %}
+
+            {% assign ttlClr          = c.text_color %}
+            {% assign ttlClrMob       = ttlClr | color_contrast: '#ffffff' %}
+
+            {% assign ttlSze          = c.font_size_1 %}
+            {% assign txtSze          = c.font_size_2 %}
+
+            {% assign imgMain         = c.image %}
+            {% assign imgMob          = '' %}
+            {% if c.image_mob != '' %}
+              {% assign imgMob        = c.image_mob %}
+            {% endif %}
+            
+            {% assign deskClass       = '' %}
+            {% if imgMob != '' %}
+              {% assign deskClass     = 'small--hide' %}
+            {% endif %}
+
+
+            {% assign blkClass        = 'block--' | append: sectionID | append: '--' | append: forloop.index %}
+            {% assign blkCssClass     = '.' | append: blkClass %}
+
+            {% assign el              = 'div' %}
+            {% assign attr            = '' %}
+            {% if lnk != '' %}
+                {% assign el          = 'a' %}
+                {% assign attr        = 'href="' | append: lnk | append: '"' %}
+            {% endif %}
+
+            {% assign width           = c.width | split: ' ' | first %}
+            {% case width %}
+              {% when '8%' %}
+                {% assign width = 'medium-down--one-whole one-twelfth' %}
+              {% when '16%' %}
+                {% assign width = 'medium-down--one-whole two-twelfths' %}
+              {% when '25%' %}
+                {% assign width = 'medium-down--one-whole three-twelfths' %}
+              {% when '33%' %}
+                {% assign width = 'medium-down--one-whole four-twelfths' %}
+              {% when '41%' %}
+                {% assign width = 'medium-down--one-whole five-twelfths' %}
+              {% when '50%' %}
+                {% assign width = 'medium-down--one-whole six-twelfths' %}
+              {% when '58%' %}
+                {% assign width = 'medium-down--one-whole seven-twelfths' %}
+              {% when '66%' %}
+                {% assign width = 'medium-down--one-whole eight-twelfths' %}
+              {% when '75%' %}
+                {% assign width = 'medium-down--one-whole nine-twelfths' %}
+              {% when '83%' %}
+                {% assign width = 'medium-down--one-whole ten-twelfths' %}
+              {% when '91%' %}
+                {% assign width = 'medium-down--one-whole eleven-twelfths' %}
+              {% else %}
+                {% assign width = 'one-whole' %}
+            {% endcase %}
+
+            {% capture cssBlockClass %}{{cssClass}} .grid_no_gutter .{{blkClass}}{% endcapture %}
+
+            {% capture blockCSS %}
+              {{blockCSS}}
+              {{cssBlockClass}} .inner-content {
+                background: {{c.background_color}};
+              }
+              {{cssBlockClass}} h2 {
+                {% if c.bold_title %}
+                font-weight: bold;
+                {% endif %}
+              }
+
+              {{cssBlockClass}} .text-content *:not(.btn) {
+                color: {{c.text_color}};
+              }
+              {{cssBlockClass}} .text-content {
+                background: {{c.text_background_color}};
+                {% if c.text_background_color == 'rgba(0,0,0,0)' %}
+                  background: {{c.text_background_color}};
+                {% else %}
+                  background: {{c.text_background_color|color_modify:'alpha',0.75}};
+                {% endif %}
+                transition: all .3s ease-out;
+              }
+              {{cssBlockClass}}:focus .text-content,
+              {{cssBlockClass}}:focus-within .text-content,
+              {{cssBlockClass}}:hover .text-content {
+                background: {{c.text_background_color}};
+              }
+              @media screen and (min-width: 767px) {
+                {{cssBlockClass}} h2 {
+                  font-size: {{ttlSze}}px;
+                }
+                {{cssBlockClass}} .rte,
+                {{cssBlockClass}} .rte * {
+                  font-size: {{txtSze}}px;
+                }
+              }
+              {% if c.item_height_mobile != 0 %}
+                /medium-down/ {
+                  {{cssBlockClass}} {
+                    grid-row-end: span {{c.item_height_mobile}};
+                  }
+                }
               {% endif %}
-              
-              <{{el}} {{attr}} class="row-item">
+              {% if c.item_height != 0 %}
+                /medium-up/ {
+                  {{cssBlockClass}} {
+                    grid-row-end: span {{c.item_height}};
+                  }
+                }
+              {% endif %}
+            {% endcapture %}
+            <div class="grid__item {{width}} {{blkClass}} {% if c.stack == true %}stack{% endif %}">
+              <{{el}} {{attr}} class="inner-content align-hor-{{c.align}} align-vert-{{c.align_vert}} {% if c.full_width == true %}full-width{% endif %}">
                 {% include snippet--image.html img=img useBG=useBG cf=cf extraClass=extraClass %}
-                {% if txt != '' %}
-                  <div class="rte">{{txt}}</div>
+                {% if ttl != '' or txt != '' or use_btn == true %}
+                  <div class="text-content">
+                    {% if ttl != '' %}
+                      <h2>{{ttl}}</h2>
+                    {% endif %}
+                    {% if txt != '' %}
+                      <div class="rte">{{txt}}</div>
+                    {% endif %}
+                    {% if use_btn == true %}
+                      <a href="{{btn_url}}" class="btn btn--tertiary">{{btn_txt}}</a>
+                    {% endif %}
+                  </div>
                 {% endif %}
               </{{el}}>
 
-            {% endfor %}
-          </div>
-        </div>
-      {% endif %}
-    </div>  
+            </div>
+          {% endfor %}
 
+        </div>  
+      </div>  
+    </div>
 
+    {% assign customCSS = blockCSS %}
+    {% assign cssClass = sectionClass %}
+    {% include custom-css.html css=customCSS class=cssClass %}
 
-  </div>
+    {% assign customCSS = sectionCSS %}
+    {% assign cssClass = sectionClass %}
+    {% include custom-css.html css=customCSS class=cssClass %}
+    
+    {{imageRow|split:splt|uniq}}
 
+  </section>
 
-
-
-
-
-
-
-
-  {% assign customCSS = sectionCSS %}
-  {% assign cssClass = sectionClass %}
-  {% include custom-css.html css=customCSS class=cssClass %}
-  
-  {{imageRow|split:splt|uniq}}
-
-</section>
-
-{% endcomment %}
+{% endif %}

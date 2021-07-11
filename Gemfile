@@ -20,6 +20,7 @@ group :jekyll_plugins do
   gem "jekyll-feed"
   gem "jekyll-menus"
   gem "liquid_pluralize"
+  gem 'jekyll-loading-lazy'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

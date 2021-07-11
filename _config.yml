@@ -17,4 +17,5 @@ plugins:
   - jekyll-feed
   - jekyll-menus
   - liquid_pluralize
+  - jekyll-loading-lazy
 

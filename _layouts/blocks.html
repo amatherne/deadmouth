@@ -12,7 +12,7 @@
       {% include {{ section.block }}.html %}
 
       {% assign formattedJson = false %}
-      {% if section.block == 'cta-music' %}
+      {% if section.block == 'mosaic' %}
       {% if section.block != 'header' %}
         {% assign count = count | plus: 1 %}
         {% assign formattedJson = true %}
