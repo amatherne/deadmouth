@@ -168,5 +168,153 @@ page_sections:
   row_button_text: ''
   row_button_url: "/test"
   custom_css: ''
+- template: mosaic
+  block: mosaic
+  item:
+  - image: "/uploads/2021/07/11/9.png"
+    image_mobile: ''
+    text_color: ''
+    background_color: ''
+    text_background_color: ''
+    width: 33% (4/12)
+    stack_item: false
+    item_height: 4
+    item_height_mobile: 
+    title: ''
+    title_size: 18
+    bold_title: false
+    text: ''
+    text_size: 15
+    button_text: ''
+    button_url: ''
+  - image: "/uploads/2021/07/11/8.png"
+    image_mobile: ''
+    text_color: ''
+    background_color: ''
+    text_background_color: ''
+    width: 33% (4/12)
+    stack_item: false
+    item_height: 3
+    item_height_mobile: 
+    title: ''
+    title_size: 18
+    bold_title: false
+    text: ''
+    text_size: 15
+    button_text: ''
+    button_url: ''
+  - image: "/uploads/2021/07/11/7.png"
+    image_mobile: ''
+    text_color: ''
+    background_color: ''
+    text_background_color: ''
+    width: 33% (4/12)
+    stack_item: false
+    item_height: 2
+    item_height_mobile: 
+    title: ''
+    title_size: 18
+    bold_title: false
+    text: ''
+    text_size: 15
+    button_text: ''
+    button_url: ''
+  - image: "/uploads/2021/07/11/6.png"
+    image_mobile: ''
+    text_color: ''
+    background_color: ''
+    text_background_color: ''
+    width: 33% (4/12)
+    stack_item: false
+    item_height: 4
+    item_height_mobile: 
+    title: ''
+    title_size: 18
+    bold_title: false
+    text: ''
+    text_size: 15
+    button_text: ''
+    button_url: ''
+  - image: "/uploads/2021/07/11/5.png"
+    image_mobile: ''
+    text_color: ''
+    background_color: ''
+    text_background_color: ''
+    width: 33% (4/12)
+    stack_item: false
+    item_height: 3
+    item_height_mobile: 
+    title: ''
+    title_size: 18
+    bold_title: false
+    text: ''
+    text_size: 15
+    button_text: ''
+    button_url: ''
+  - image: "/uploads/2021/07/11/4.png"
+    image_mobile: ''
+    text_color: ''
+    background_color: ''
+    text_background_color: ''
+    width: 33% (4/12)
+    stack_item: false
+    item_height: 5
+    item_height_mobile: 
+    title: ''
+    title_size: 18
+    bold_title: false
+    text: ''
+    text_size: 15
+    button_text: ''
+    button_url: ''
+  - image: "/uploads/2021/07/11/3.png"
+    image_mobile: ''
+    text_color: ''
+    background_color: ''
+    text_background_color: ''
+    width: 33% (4/12)
+    stack_item: false
+    item_height: 2
+    item_height_mobile: 
+    title: ''
+    title_size: 18
+    bold_title: false
+    text: ''
+    text_size: 15
+    button_text: ''
+    button_url: ''
+  - image: "/uploads/2021/07/11/2.png"
+    image_mobile: ''
+    text_color: ''
+    background_color: ''
+    text_background_color: ''
+    width: 33% (4/12)
+    stack_item: false
+    item_height: 4
+    item_height_mobile: 
+    title: ''
+    title_size: 18
+    bold_title: false
+    text: ''
+    text_size: 15
+    button_text: ''
+    button_url: ''
+  - image: "/uploads/2021/07/11/1.png"
+    image_mobile: ''
+    text_color: ''
+    background_color: ''
+    text_background_color: ''
+    width: 33% (4/12)
+    stack_item: false
+    item_height: 3
+    item_height_mobile: 
+    title: ''
+    title_size: 18
+    bold_title: false
+    text: ''
+    text_size: 15
+    button_text: ''
+    button_url: ''
+  custom_css: ''
 
 ---
