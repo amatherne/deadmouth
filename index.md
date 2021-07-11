@@ -145,7 +145,7 @@ page_sections:
       hover_-_border: ''
     custom_css: ''
     button_style: ''
-  reverse: true
+  reverse: false
   hide_images: false
   custom_css: ''
 - template: cta-music

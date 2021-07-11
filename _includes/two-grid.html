@@ -43,7 +43,11 @@
     {% assign rawImg          = b.image%}
 
     {% assign count           = count | plus: 1 %}
-    {% assign rev             = count | modulo: 2 | pluralize: 'reverse' %}
+    {% assign classSet        = count | modulo: 2 %}
+    {% assign rev             = '' %}
+    {% if classSet == 1 %}
+      {% assign rev           = 'reverse' %}
+    {% endif %}
 
     {% assign blkClass        = 'block--' | append: sectionID | append: '--' | append: forloop.index %}
     {% assign blkCssClass     = '.' | append: blkClass %}
