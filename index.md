@@ -6,13 +6,13 @@ page_sections:
 - template: navigation-header
   block: header
   navigation:
-  - link: "#"
+  - link: "#ctas--3"
     link_text: Members
   - link_text: Bio
     link: "#two-grid--4"
-  - link: "#"
+  - link: "#cta-music--5"
     link_text: Music
-  - link: "#"
+  - link: "#mosaic--6"
     link_text: Gallery
   - link: "#"
     link_text: Monster
