@@ -1062,9 +1062,9 @@ a {
 
   .page-width {
     max-width: 100%;
-    // padding: 0 var(--base-gutter--quarter);
+    padding: 0 var(--base-gutter--quarter);
     @include mq($medium-up) {
-      // padding: 0 var(--base-gutter--half);
+      padding: 0 var(--base-gutter--half);
     }
   }
 
