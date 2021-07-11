@@ -9,7 +9,7 @@ page_sections:
   - link: "#"
     link_text: Members
   - link_text: Bio
-    link: "#"
+    link: "#two-grid--4"
   - link: "#"
     link_text: Music
   - link: "#"
@@ -219,7 +219,6 @@ page_sections:
     text_size: 15
     button_text: ''
     button_url: ''
-
   - image: "/uploads/2021/07/11/6.png"
     image_mobile: ''
     text_color: ''
@@ -235,8 +234,7 @@ page_sections:
     text: ''
     text_size: 15
     button_text: ''
-    button_url: ''    
-
+    button_url: ''
   - image: "/uploads/2021/07/11/4.png"
     image_mobile: ''
     text_color: ''
@@ -269,8 +267,6 @@ page_sections:
     text_size: 15
     button_text: ''
     button_url: ''
-
-
   - image: "/uploads/2021/07/11/9.png"
     image_mobile: ''
     text_color: ''
@@ -319,7 +315,6 @@ page_sections:
     text_size: 15
     button_text: ''
     button_url: ''
-
   custom_css: ''
 
 ---
