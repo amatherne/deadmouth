@@ -1,4 +1,150 @@
 ---
 label: Mosaic
 hide_body: true
-fields: []
+fields:
+- name: block
+  type: text
+  config:
+    required: false
+  label: Block
+  hidden: true
+  default: mosaic
+- name: custom_css
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Custom CSS
+- name: item
+  type: field_group_list
+  fields:
+  - name: image
+    type: file
+    config:
+      maxSize: 64
+    label: Image
+  - name: image_mobile
+    type: file
+    config:
+      maxSize: 64
+    label: Image Mobile
+  - name: text_color
+    type: color
+    label: Text Color
+    config:
+      required: false
+      color_format: Hex
+  - name: background_color
+    type: color
+    label: Background Color
+    config:
+      required: false
+      color_format: Hex
+  - name: text_background_color
+    type: color
+    label: Text Background Color
+    config:
+      required: false
+      color_format: Hex
+  - name: width
+    type: select
+    default: 33% (4/12)
+    config:
+      required: false
+      options:
+      - 8% (1/12)
+      - 16% (2/12)
+      - 25% (3/12)
+      - 33% (4/12)
+      - 41% (5/12)
+      - 50% (6/12)
+      - 58% (7/12)
+      - 66% (8/12)
+      - 75% (9/12)
+      - 83% (10/12)
+      - 91% (11/12)
+      - 100%
+      source:
+        type: simple
+        section: 
+        file: 
+        path: 
+    label: Width
+  - name: stack_item
+    type: boolean
+    label: Stack Item
+  - name: item_height
+    type: number
+    label: Item Height
+    description: Leave 0 for auto. Non 0 setting will override Stack Item.
+    default: 0
+    required: true
+    config:
+      min: 0
+      max: 24
+      step: 
+  - name: item_height_mobile
+    type: number
+    description: Leave 0 for auto. Non 0 setting will override Stack Item.
+    default: 0
+    required: true
+    config:
+      min: 0
+      max: 24
+      step: 
+    label: Item Height Mobile
+  - name: title
+    type: text
+    config:
+      required: false
+    label: Title
+  - name: title_size
+    type: number
+    label: Title Size
+    description: ''
+    default: 18
+    required: true
+    config:
+      min: 10
+      max: 100
+      step: 
+  - name: bold_title
+    type: boolean
+    label: Bold Title
+  - name: text
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: false
+      schema:
+        format: markdown
+    label: Text
+  - name: text_size
+    type: number
+    label: Text Size
+    description: ''
+    default: 15
+    required: true
+    config:
+      min: 10
+      max: 100
+      step: 
+  - name: button_text
+    type: text
+    config:
+      required: false
+    label: Button Text
+  - name: button_url
+    type: text
+    config:
+      required: false
+    label: Button Url
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Item
