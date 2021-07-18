@@ -191,6 +191,24 @@
             {% endcapture %}
             <div class="grid__item {{width}} {{blkClass}} {% if c.stack == true %}stack{% endif %}">
               <{{el}} {{attr}} class="inner-content align-hor-{{c.align}} align-vert-{{c.align_vert}} {% if c.full_width == true %}full-width{% endif %}">
+                <a href="#" class="open-modal modal-action" data-open="{{blkClass}}">
+                  <span class="visually-hidden">Expand Image</span>
+                  {% include icon--close.svg %}
+                </a>
+                {% capture modals %}
+                  {{modals}}
+                  <div class="basic-modal " data-modal="{{blkClass}}">
+                    <a href="#" class="close-modal--bg modal-action" data-close="{{blkClass}}">
+                      <span class="visually-hidden">Close Image</span>
+                    </a>
+                    <div class="basic-modal--outer-container">
+                      <div class="basic-modal--inner-container">
+                        {% include snippet--image.html img=img useBG=useBG cf=cf extraClass=extraClass %}
+                      </div>
+                      <a href="#" class="close-modal modal-action" data-close="{{blkClass}}">close</a>
+                    </div>
+                  </div>
+                {% endcapture%}
                 {% include snippet--image.html img=img useBG=useBG cf=cf extraClass=extraClass %}
                 {% if ttl != '' or txt != '' or use_btn == true %}
                   <div class="text-content">
@@ -214,6 +232,8 @@
       </div>  
     </div>
 
+    {{modals}}
+
     {% assign customCSS = blockCSS %}
     {% assign cssClass = sectionClass %}
     {% include custom-css.html css=customCSS class=cssClass %}
@@ -222,7 +242,6 @@
     {% assign cssClass = sectionClass %}
     {% include custom-css.html css=customCSS class=cssClass %}
     
-    {{imageRow|split:splt|uniq}}
 
   </section>
 

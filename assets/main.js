@@ -1,5 +1,9 @@
 // console.log('test')
-
+jQuery.extend(jQuery.expr[':'], {
+  focusable: function(el, index, selector){
+    return $(el).is('a, button, :input, [tabindex]');
+  }
+});
 
 window.addEventListener('DOMContentLoaded', (event) => {
 
@@ -10,6 +14,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   document.addEventListener('DOMContentLoaded', headerHeight);
   window.addEventListener('resize', headerHeight);
   window.addEventListener('scroll', headerHeight);
+
   function headerHeight() {
     var elementTarget = document.getElementById('top');
     var hdrEl = document.querySelectorAll('header.site-header');
@@ -20,7 +25,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         var hdrHght = hdrEl[0].clientHeight;
         document.documentElement.style.setProperty('--header-height', hdrHght + 'px');
       }
-      if ( scrollTop > elTop ) {
+      if (scrollTop > elTop) {
         hdrEl[0].classList.add(hdrScrolled)
       } else {
         hdrEl[0].classList.remove(hdrScrolled)
@@ -80,5 +85,70 @@ window.addEventListener('DOMContentLoaded', (event) => {
       }
     });
 
+
+  function Modal(el) {
+    el = el;
+    act = 'active';
+    actMod = 'modal-active';
+    initMdl(el)
+
+    function initMdl(el) {
+      winWidth = $(window).width();
+      thisEl = el;
+      type = getDataName($(thisEl)).length ? getDataName($(thisEl)) : 'modal';
+      thisMdl = getDataName($(thisEl)).length ? $('[data-modal="' + $(thisEl).data(type) + '"]') : $(thisEl);
+      if (type == 'open' || type == 'modal') {
+        if (!thisMdl.is('.' + act)) {
+          showModal(thisMdl);
+        } else {
+          hideModal(thisMdl);
+        }
+      }
+      if (type == 'close') {
+        hideModal(thisMdl);
+      }
+    }
+
+    function showModal(el) {
+      var lastTop = $(window).scrollTop(),
+        el = $(el),
+        delay = 0;
+      $('body').addClass(actMod).css({ top: -lastTop });
+      if (el.is('[style*=display]')) {
+        el[0].removeAttribute('style');
+        delay = 100; // gives a moment for animation settings to take over
+      }
+      setTimeout(function() {
+        el.addClass(act);
+        el.find(':focusable').first().focus();
+      }, delay)
+    }
+
+    function hideModal(el) {
+      var lastTop = Math.abs(parseInt($('body').css('top'))),
+        el = $(el);
+      $('body').css({ top: 0 }).removeClass(actMod);
+      window.scrollTo(0, lastTop);
+      el.removeClass(act);
+    }
+
+    function getDataName(node) {
+      var d = {},
+        key = '',
+        re_dataAttr = /^data\-(.+)$/;
+      $.each(node.get(0).attributes, function(index, attr) {
+        if (re_dataAttr.test(attr.nodeName)) {
+          key = attr.nodeName.match(re_dataAttr)[1];
+        }
+      });
+      return key;
+    }
+  }
+
+  $('.modal-action').on('click touch', function (e) {
+    e.preventDefault();
+    Modal($(this));
+    // console.log($(this))
+  })
 
 });
