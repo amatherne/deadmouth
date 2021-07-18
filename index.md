@@ -35,7 +35,7 @@ page_sections:
   title: Deadmouth
   text: New Music Video - “Monster”
   button_text: Watch Now
-  button_url: "/#video--7"
+  button_url: "#video--7"
   alt_text: ''
   custom_size: ''
   custom_css: |-
