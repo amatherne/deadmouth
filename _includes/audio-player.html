@@ -1,0 +1,353 @@
+<div class="player">
+  
+  <div class="player__header">
+    <div class="player__img player__img--absolute slider">
+
+      <button class="player__button player__button--absolute--nw playlist">
+        <img src="http://physical-authority.surge.sh/imgs/icon/playlist.svg" alt="playlist-icon">
+      </button>
+
+      <button class="player__button player__button--absolute--center play">
+        <img src="http://physical-authority.surge.sh/imgs/icon/play.svg" alt="play-icon">
+        <img src="http://physical-authority.surge.sh/imgs/icon/pause.svg" alt="pause-icon">
+      </button>
+
+      <div class="slider__content">
+        <img class="img slider__img" src="http://physical-authority.surge.sh/imgs/1.jpg" alt="cover">
+        <img class="img slider__img" src="http://physical-authority.surge.sh/imgs/2.jpg" alt="cover">
+        <img class="img slider__img" src="http://physical-authority.surge.sh/imgs/3.jpg" alt="cover">
+        <img class="img slider__img" src="http://physical-authority.surge.sh/imgs/4.jpg" alt="cover">
+        <img class="img slider__img" src="http://physical-authority.surge.sh/imgs/5.jpg" alt="cover">
+        <img class="img slider__img" src="http://physical-authority.surge.sh/imgs/6.jpg" alt="cover">
+        <img class="img slider__img" src="http://physical-authority.surge.sh/imgs/7.jpg" alt="cover">
+      </div>
+
+    </div>
+    <div class="player__controls">
+
+      <button class="player__button back">
+        <img class="img" src="http://physical-authority.surge.sh/imgs/icon/back.svg" alt="back-icon">
+      </button>
+
+      <p class="player__context slider__context">
+        <strong class="slider__name"></strong>
+        <span class="player__title slider__title"></span>
+      </p>
+
+      <button class="player__button next">
+        <img class="img" src="http://physical-authority.surge.sh/imgs/icon/next.svg" alt="next-icon">
+      </button>
+
+      <div class="progres">
+        <div class="progres__filled"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <ul class="player__playlist list">
+    
+    <li class="player__song">
+      <img class="player__img img" src="http://physical-authority.surge.sh/imgs/1.jpg" alt="cover">
+      <p class="player__context">
+        <b class="player__song-name">no time</b>
+        <span class="flex">
+          <span class="player__title">lastlings</span>
+          <span class="player__song-time"></span>
+        </span>
+      </p>
+      <audio class="audio" src="http://physical-authority.surge.sh/music/1.mp3"></audio>
+    </li>
+    
+    
+    <li class="player__song">
+      <img class="player__img img" src="http://physical-authority.surge.sh/imgs/2.jpg" alt="cover">
+      <p class="player__context">
+        <b class="player__song-name">blinding lights</b>
+        <span class="flex">
+          <span class="player__title">the weeknd</span>
+          <span class="player__song-time"></span>
+        </span>
+      </p>
+      <audio class="audio" src="http://physical-authority.surge.sh/music/2.mp3"></audio>
+    </li>
+    
+    
+    <li class="player__song">
+      <img class="player__img img" src="http://physical-authority.surge.sh/imgs/3.jpg" alt="cover">
+      <p class="player__context">
+        <b class="player__song-name">джованна</b>
+        <span class="flex">
+          <span class="player__title">enrasta</span>
+          <span class="player__song-time"></span>
+        </span>
+      </p>
+      <audio class="audio" src="http://physical-authority.surge.sh/music/3.mp3"></audio>
+    </li>
+    
+    
+    <li class="player__song">
+      <img class="player__img img" src="http://physical-authority.surge.sh/imgs/4.jpg" alt="cover">
+      <p class="player__context">
+        <b class="player__song-name">a man</b>
+        <span class="flex">
+          <span class="player__title">travis scott</span>
+          <span class="player__song-time"></span>
+        </span>
+      </p>
+      <audio class="audio" src="http://physical-authority.surge.sh/music/4.mp3"></audio>
+    </li>
+    
+    
+    <li class="player__song">
+      <img class="player__img img" src="http://physical-authority.surge.sh/imgs/5.jpg" alt="cover">
+      <p class="player__context ">
+        <b class="player__song-name">unforgetting</b>
+        <span class="flex">
+          <span class="player__title">zaxx</span>
+          <span class="player__song-time"></span>
+        </span>
+      </p>
+      <audio class="audio" src="http://physical-authority.surge.sh/music/5.mp3"></audio>
+    </li>
+    
+    
+    <li class="player__song">
+      <img class="player__img img" src="http://physical-authority.surge.sh/imgs/6.jpg" alt="cover">
+      <p class="player__context">
+        <b class="player__song-name">waharan</b>
+        <span class="flex">
+          <span class="player__title">Randall</span>
+          <span class="player__song-time"></span>
+        </span>
+      </p>
+      <audio class="audio" src="http://physical-authority.surge.sh/music/6.mp3"></audio>
+    </li>
+    
+    
+    <li class="player__song">
+      <img class="player__img img" src="http://physical-authority.surge.sh/imgs/7.jpg" alt="cover">
+      <p class="player__context ">
+        <b class="player__song-name">starlight feat mr gabriel <span class="uppercase">4am</span> remix</b>
+        <span class="flex">
+          <span class="player__title">jai wolf</span>
+          <span class="player__song-time"></span>
+        </span>
+      </p>
+      <audio class="audio" src="http://physical-authority.surge.sh/music/7.mp3"></audio>
+    </li>
+    
+  </ul>
+
+</div>
+
+
+
+
+{% comment %}
+{% assign s = section %}
+{% assign lp = s.item %}
+{% assign img = s.image | default: '' %}
+{% assign secTtl = s.section_title | default: '' %}
+{% assign secTxt = s.section_text | default: '' %}
+{% assign rowTtl = s.row_title | default: '' %}
+{% assign rowTxt = s.row_text | default: '' %}
+{% assign blockCSS = '' %}
+{% assign prevImgs = '' %}
+{% assign imageRow = '' %}
+{% assign splt = '
+<!--SPLIT-->' %}
+{% assign count = 0 %}
+{% if isRev == true or isRev == 'true' %}
+{% assign count = 1 %}
+{% endif %}
+{% assign sectionCSS = s.custom_css %}
+{% assign sectionID = s.block | append: '--' | append: forloop.index %}
+{% assign sectionClass = 'section--' | append: sectionID %}
+{% assign cssClass = '.' | append: sectionClass %}
+{% assign leftCol = 'medium-up--one-half' %}
+{% assign centerCol = 'medium-up--one-half' %}
+{% if lp.size > 0 %}
+{% assign leftCol = 'medium-up--one-third' %}
+{% assign centerCol = 'medium-up--one-third' %}
+{% assign rightCol = 'medium-up--one-third' %}
+{% endif %}
+<!-- include/mosaic -->
+{% if lp.size > 0 %}
+<section id="{{sectionID}}" class="section--mosaic {{sectionClass}} ">
+  <div class="page-width">
+    {% if secTtl != '' or secTxt != '' %}
+    <div class="section--title text-center {% if secTtl != '' and secTxt == '' %}inline--link{% endif %}">
+      {% if secTtl != '' %}
+      <h2>{{secTtl}}</h2>
+      {% endif %}
+      {% if secTxt != '' %}
+      <div class="rte">{{secTxt}}</div>
+      {% endif %}
+    </div>
+    {% endif %}
+    <div class="masonry-container">
+      <div class="grid_no_gutter vert-top ">
+        {% for c in lp %}
+        {% assign img = c.image | default: '' %}
+        {% assign ttl = c.title | default: '' %}
+        {% assign txt = c.text | default: '' %}
+        {% assign btn_url = c.button_url %}
+        {% assign btn_txt = c.button_text %}
+        {% assign use_btn = false %}
+        {% if btn_url != '' and btn_txt != '' %}
+        {% assign use_btn = true %}
+        {% endif %}
+        {% assign extraClass = '' %}
+        {% assign useBG = false %}
+        {% assign cf = true %}
+        {% assign ttlClr = c.text_color %}
+        {% assign ttlClrMob = ttlClr | color_contrast: '#ffffff' %}
+        {% assign ttlSze = c.font_size_1 %}
+        {% assign txtSze = c.font_size_2 %}
+        {% assign imgMain = c.image %}
+        {% assign imgMob = '' %}
+        {% if c.image_mob != '' %}
+        {% assign imgMob = c.image_mob %}
+        {% endif %}
+        {% assign deskClass = '' %}
+        {% if imgMob != '' %}
+        {% assign deskClass = 'small--hide' %}
+        {% endif %}
+        {% assign blkClass = 'block--' | append: sectionID | append: '--' | append: forloop.index %}
+        {% assign blkCssClass = '.' | append: blkClass %}
+        {% assign el = 'div' %}
+        {% assign attr = '' %}
+        {% if btn_url != '' %}
+        {% assign el = 'a' %}
+        {% assign attr = 'href="' | append: lnk | append: '"' %}
+        {% endif %}
+        {% assign width = c.width | split: ' ' | first %}
+        {% case width %}
+        {% when '8%' %}
+        {% assign width = 'medium-down--one-whole one-twelfth' %}
+        {% when '16%' %}
+        {% assign width = 'medium-down--one-whole two-twelfths' %}
+        {% when '25%' %}
+        {% assign width = 'medium-down--one-whole three-twelfths' %}
+        {% when '33%' %}
+        {% assign width = 'medium-down--one-whole four-twelfths' %}
+        {% when '41%' %}
+        {% assign width = 'medium-down--one-whole five-twelfths' %}
+        {% when '50%' %}
+        {% assign width = 'medium-down--one-whole six-twelfths' %}
+        {% when '58%' %}
+        {% assign width = 'medium-down--one-whole seven-twelfths' %}
+        {% when '66%' %}
+        {% assign width = 'medium-down--one-whole eight-twelfths' %}
+        {% when '75%' %}
+        {% assign width = 'medium-down--one-whole nine-twelfths' %}
+        {% when '83%' %}
+        {% assign width = 'medium-down--one-whole ten-twelfths' %}
+        {% when '91%' %}
+        {% assign width = 'medium-down--one-whole eleven-twelfths' %}
+        {% else %}
+        {% assign width = 'one-whole' %}
+        {% endcase %}
+        {% capture cssBlockClass %}{{cssClass}} .grid_no_gutter .{{blkClass}}{% endcapture %}
+        {% capture blockCSS %}
+        {{blockCSS}}
+        {{cssBlockClass}} .inner-content {
+        background: {{c.background_color}};
+        }
+        {{cssBlockClass}} h2 {
+        {% if c.bold_title %}
+        font-weight: bold;
+        {% endif %}
+        }
+        {{cssBlockClass}} .text-content *:not(.btn) {
+        color: {{c.text_color}};
+        }
+        {{cssBlockClass}} .text-content {
+        background: {{c.text_background_color}};
+        {% if c.text_background_color == 'rgba(0,0,0,0)' %}
+        background: {{c.text_background_color}};
+        {% else %}
+        background: {{c.text_background_color|color_modify:'alpha',0.75}};
+        {% endif %}
+        transition: all .3s ease-out;
+        }
+        {{cssBlockClass}}:focus .text-content,
+        {{cssBlockClass}}:focus-within .text-content,
+        {{cssBlockClass}}:hover .text-content {
+        background: {{c.text_background_color}};
+        }
+        @media screen and (min-width: 767px) {
+        {{cssBlockClass}} h2 {
+        font-size: {{ttlSze}}px;
+        }
+        {{cssBlockClass}} .rte,
+        {{cssBlockClass}} .rte * {
+        font-size: {{txtSze}}px;
+        }
+        }
+        {% if c.item_height_mobile != 0 %}
+        /medium-down/ {
+        {{cssBlockClass}} {
+        grid-row-end: span {{c.item_height_mobile}};
+        }
+        }
+        {% endif %}
+        {% if c.item_height != 0 %}
+        /medium-up/ {
+        {{cssBlockClass}} {
+        grid-row-end: span {{c.item_height}};
+        }
+        }
+        {% endif %}
+        {% endcapture %}
+        <div class="grid__item {{width}} {{blkClass}} {% if c.stack == true %}stack{% endif %}">
+          < {{el}} {{attr}} class="inner-content align-hor-{{c.align}} align-vert-{{c.align_vert}} {% if c.full_width == true %}full-width{% endif %}">
+            <a href="#" class="open-modal modal-action" data-open="{{blkClass}}">
+              <span class="visually-hidden">Expand Image</span>
+              {% include icon--close.svg %}
+            </a>
+            {% capture modals %}
+            {{modals}}
+            <div class="basic-modal " data-modal="{{blkClass}}">
+              <a href="#" class="close-modal--bg modal-action" data-close="{{blkClass}}">
+                <span class="visually-hidden">Close Image</span>
+              </a>
+              <div class="basic-modal--outer-container">
+                <div class="basic-modal--inner-container">
+                  {% include snippet--image.html img=img useBG=useBG cf=cf extraClass=extraClass %}
+                </div>
+                <a href="#" class="close-modal modal-action" data-close="{{blkClass}}">close</a>
+              </div>
+            </div>
+            {% endcapture%}
+            {% include snippet--image.html img=img useBG=useBG cf=cf extraClass=extraClass %}
+            {% if ttl != '' or txt != '' or use_btn == true %}
+            <div class="text-content">
+              {% if ttl != '' %}
+              <h2>{{ttl}}</h2>
+              {% endif %}
+              {% if txt != '' %}
+              <div class="rte">{{txt}}</div>
+              {% endif %}
+              {% if use_btn == true %}
+              <a href="{{btn_url}}" class="btn btn--tertiary">{{btn_txt}}</a>
+              {% endif %}
+            </div>
+            {% endif %}
+          </ {{el}}>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {{modals}}
+  {% assign customCSS = blockCSS %}
+  {% assign cssClass = sectionClass %}
+  {% include custom-css.html css=customCSS class=cssClass %}
+  {% assign customCSS = sectionCSS %}
+  {% assign cssClass = sectionClass %}
+  {% include custom-css.html css=customCSS class=cssClass %}
+</section>
+{% endif %}
+{% endcomment %}

@@ -20,7 +20,7 @@ var gulp = require("gulp"),
 
 
 var mainJS = [
-      // './assets/theme.js',
+      './assets/audio-player.js',
       './assets/vendor.js',
       './assets/main.js',
     ],
