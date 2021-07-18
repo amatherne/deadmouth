@@ -316,5 +316,12 @@ page_sections:
     button_text: ''
     button_url: ''
   custom_css: ''
+- template: video
+  block: video
+  section_title: Monster - Music Video
+  video_embed: <iframe width="560" height="315" src="https://www.youtube.com/embed/Uk18bFIgOS4"
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+    encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  custom_css: ''
 
 ---
