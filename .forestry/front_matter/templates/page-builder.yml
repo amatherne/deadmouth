@@ -23,5 +23,6 @@ fields:
   - two-grid
   - cta-music
   - mosaic
+  - video
 pages:
 - index.md
