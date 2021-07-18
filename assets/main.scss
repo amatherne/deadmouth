@@ -2277,7 +2277,7 @@ body.modal-active {
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 99999999;
+  z-index: 99;
 
   * {
     scrollbar-width: none;
@@ -2289,6 +2289,14 @@ body.modal-active {
 
     &::after {
       scrollbar-width: none;
+    }
+  }
+
+  > * {
+    margin-right: var(--base-gutter);
+
+    &:last-child {
+      margin-right:0;
     }
   }
 
@@ -2309,15 +2317,23 @@ body.modal-active {
   &__select {
     position: relative;
     width: 100%;
-    max-width: 400px;
+    max-width: 225px;
     display: inline-flex;
     align-items:center;
     justify-content: space-between;
+
+    @include mq($small) {
+      width: calc(50% - var(--base-gutter--half));
+      margin-right: var(--base-gutter--half);
+    }
   }
 
   &__playlist-container {
     flex: 0 0 calc(100% - 50px);
     position: relative;
+    @include mq($small) {
+      flex: 0 0 100%;
+    }
   }
 
   &__playlist {
@@ -2407,13 +2423,24 @@ body.modal-active {
   }
 
   &__controls {
-    max-width: 300px;
+    max-width: 200px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     will-change: contents;
     align-content: center;
     justify-content: center;
+
+
+    .play {
+      margin: 0 5px;
+    }
+
+     @include mq($small) {
+      width: calc(50% - var(--base-gutter));
+      width: 50%;
+      margin-right: 0;
+    }
   }
 
   .icon--pause {
@@ -2421,14 +2448,23 @@ body.modal-active {
   }
 
 
+   &__progress {
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+    // display: inline-flex;
+    // align-items:center;
+    // justify-content: space-between;
+  }
 
   .progress {
-    width: 90%;
-    height: .25em;
+    margin: var(--base-gutter--half) auto 0;
+    width: 100%;
+    height: 7px;
     cursor: pointer;
     border-radius: 1em;
     touch-action: none;
-    background-color: #e5e7ea;
+    background-color: var(--color--black-forest);
     transition: width var(--audio-player--cubic-header);
 
     .progress__filled {
@@ -2438,22 +2474,44 @@ body.modal-active {
       position: relative;
       align-items: center;
       border-radius: inherit;
-      background-color: #78adfe;
+      background-color: var(--color--black-forest);
 
       &::before {
-        right: 0;
-        width: .35em;
         content: " ";
-        height: .35em;
-        border-radius: 50%;
+        right: 0;
+        width: 14px;
+        height: 14px;
+        border-radius: 150%;
+        transform: translateX(7px);
         position: absolute;
-        background-color: #5781bd;
+        background-color: var(--color--el-salva);
       }
     }
   }
 
   .audio {
     display: none !important;
+  }
+
+
+  @include mq($small) {
+    justify-content: space-evenly;
+    align-items: center;
+    padding: var(--base-gutter--quarter) 0;
+
+    .playlist {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      svg {
+        display: none;
+      }
+    }
+
+
   }
 }
 
