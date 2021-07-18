@@ -20,9 +20,9 @@ var gulp = require("gulp"),
 
 
 var mainJS = [
-      './assets/audio-player.js',
       './assets/vendor.js',
       './assets/main.js',
+      './assets/audio-player.js',
     ],
     allCSS = [
       "assets/normalize.css",

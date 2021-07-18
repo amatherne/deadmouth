@@ -75,13 +75,13 @@ page_sections:
   block: audio-player
   songs:
   - song_title: The Middle
-    record_title: Self-Titled
+    record_title: New EP
+    song_file: "/uploads/2021/07/18/the-middle.wav"
+  - song_title: Quitter
+    record_title: New EP
     song_file: "/uploads/2021/07/18/quitter.wav"
-  - song_title: Quiter
-    record_title: Self-Titled
-    song_file: ''
   - song_title: Headlocked
-    record_title: Self-Titled
+    record_title: New EP
     song_file: "/uploads/2021/07/18/headlocked.wav"
 - template: ctas
   block: ctas
@@ -353,8 +353,6 @@ page_sections:
   button_text: ''
   button_url: ''
   custom_css: ''
-- template: footer
-  block: footer
 - template: simple-footer
   block: footer
   content: ''

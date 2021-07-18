@@ -13,7 +13,7 @@
 {% assign sectionClass    = 'section--' | append: s.block | append: '--' | append: forloop.index %}
 {% assign cssClass        = '.' | append: sectionClass %}
 
-<header class="site-footer {{sectionClass}}">
+<section class="site-footer {{sectionClass}}">
 
   <div class="page-width with-padding">
     <div class="site-footer--container">
@@ -86,6 +86,4 @@
 
   {% include custom-css.html css=customCSS class=cssClass %}
 
-</header>
-
-<div class="header-clear" style="min-height:var(--header-height,50px);"></div>
+</section>
