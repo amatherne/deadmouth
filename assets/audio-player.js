@@ -30,6 +30,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   let count = 0;
   let song = playerSongs[count];
   let isPlay = false;
+  const timer = document.getElementById('current__time');
   const pauseIcon = playButton.querySelector(".icon--pause");
   const playIcon = playButton.querySelector(".icon--play");
   const progress = player.querySelector(".progress");
@@ -99,11 +100,23 @@ window.addEventListener('DOMContentLoaded', (event) => {
       playIcon.style.display = "none";
       pauseIcon.style.display = "block";
 
+     var update = setInterval(function() {
+          var mins = Math.floor(song.currentTime / 60);
+          var secs = Math.floor(song.currentTime % 60);
+          if (secs < 10) {
+            secs = '0' + String(secs);
+          }
+          newTime = mins + ':' + secs;
+          timer.innerHTML = newTime;
+        }, 10);
+
     } else {
       song.pause();
       isPlay = false;
       playIcon.style.display = "";
       pauseIcon.style.display = "";
+      clearInterval(update)
+      timer.innerHTML = newTime;
     }
 
   }
@@ -122,6 +135,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
       isPlay = false;
     }
   }
+
+ 
 
   function scurb(e) {
     // If we use e.offsetX, we have trouble setting the song time, when the mousemove is running
