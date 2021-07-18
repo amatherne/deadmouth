@@ -8,6 +8,7 @@ fields:
     required: false
   label: Block
   default: audio-player
+  hidden: true
 - name: songs
   type: field_group_list
   fields:

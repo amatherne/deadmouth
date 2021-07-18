@@ -71,6 +71,18 @@ page_sections:
     transform: translate(-50%,-95%);
     }
     }
+- template: audio-player
+  block: audio-player
+  songs:
+  - song_title: The Middle
+    record_title: Self-Titled
+    song_file: "/uploads/2021/07/18/quitter.wav"
+  - song_title: Quiter
+    record_title: Self-Titled
+    song_file: ''
+  - song_title: Headlocked
+    record_title: Self-Titled
+    song_file: "/uploads/2021/07/18/headlocked.wav"
 - template: ctas
   block: ctas
   section_title: Members
