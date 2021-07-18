@@ -104,6 +104,11 @@ page_sections:
     == .inner-container .rte {
     text-transform:uppercase;
     }
+    /small/ {
+    == .grid__item {
+    width: 50%;
+    }
+    }
 - template: two-grid
   block: two-grid
   row:
