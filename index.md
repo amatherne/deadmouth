@@ -343,5 +343,8 @@ page_sections:
   custom_css: ''
 - template: footer
   block: footer
+- template: simple-footer
+  block: footer
+  content: ''
 
 ---
