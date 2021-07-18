@@ -39,6 +39,9 @@ page_sections:
   alt_text: ''
   custom_size: ''
   custom_css: |-
+    == {
+    z-index: 999999;
+    }
     == h2 {
     font-size: 90px;
     }
