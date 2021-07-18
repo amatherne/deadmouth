@@ -14,9 +14,9 @@ page_sections:
     link_text: Music
   - link: "#mosaic--6"
     link_text: Gallery
-  - link: "#"
+  - link: "#video--7"
     link_text: Monster
-  - link: "#"
+  - link: "#ctas--8"
     link_text: Merch
   logo: ''
 - template: hero-image
