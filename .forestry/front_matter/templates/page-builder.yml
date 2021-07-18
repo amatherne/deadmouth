@@ -24,5 +24,7 @@ fields:
   - cta-music
   - mosaic
   - video
+  - audio-player
+  - simple-footer
 pages:
 - index.md
