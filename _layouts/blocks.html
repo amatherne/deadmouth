@@ -11,13 +11,13 @@
       
       {% include {{ section.block }}.html %}
 
-      {% assign formattedJson = false %}
-      {% if section.block == 'mosaic' %}
+      {% if section.block == 'video' %}
       {% if section.block != 'header' %}
         {% assign count = count | plus: 1 %}
         {% assign formattedJson = true %}
       {% endif %}
       {% endif %}
+      {% assign formattedJson = false %}
     
       {% if formattedJson == true %}
         <div style="padding: var(--base-gutter--double) var(--base-gutter);">        

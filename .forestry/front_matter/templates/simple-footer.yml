@@ -6,7 +6,7 @@ fields:
   hidden: true
   label: block
   name: block
-  default: footer-1
+  default: footer
 - type: textarea
   label: Footer Text
   name: content

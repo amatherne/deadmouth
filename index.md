@@ -341,5 +341,7 @@ page_sections:
   button_text: ''
   button_url: ''
   custom_css: ''
+- template: footer
+  block: footer
 
 ---

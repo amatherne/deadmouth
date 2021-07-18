@@ -1,0 +1,91 @@
+<!-- include/footer -->
+
+{% assign s               = section %}
+
+{% assign homeUrl         = '/' | relative_url %}
+{% assign homeUrl         = '/#top' | relative_url %}
+
+{% assign siteTtl         = site.title %}
+
+{% assign siteLogo        = s.logo | relative_url %}
+
+{% assign customCSS       = s.custom_css %}
+{% assign sectionClass    = 'section--' | append: s.block | append: '--' | append: forloop.index %}
+{% assign cssClass        = '.' | append: sectionClass %}
+
+<header class="site-footer {{sectionClass}}">
+
+  <div class="page-width with-padding">
+    <div class="site-footer--container">
+        
+      <div class="site-footer--logo">
+        <a href="{{ homeUrl }}">
+          <!-- <img src="{{ siteLogo }}" alt="{{ siteTtl }}"> -->
+          <h1 class="visually-hidden">
+            {{siteTtl}}
+          </h1>
+          <span class="h2 site-footer--title">
+            DM
+          </span>
+        </a>
+      </div>
+
+      <div class="site-footer--copyright">
+        <small>© 2021 DEADMOUTH Music LLC.</small>
+        <small>All Rights Reserved.</small>
+      </div>
+
+      <div class="site-footer--social">
+        {%- assign social_accounts = 'Facebook, Twitter, Instagram, YouTube,' | split: ', ' -%}
+        {% for social in social_accounts %}
+          {%- assign social_handle = social | slugify -%}
+          {% capture social_icon %}icon--{{ social_handle }}.svg{% endcapture %}
+
+
+          {% case social %}
+            {% when 'Facebook' %}
+              {% assign social_link = 'https://facebook.com' %}
+            {% when 'Instagram' %}
+              {% assign social_link = 'https://instagram.com' %}
+            {% when 'Youtube' %}
+              {% assign social_link = 'https://youtube.com' %}
+            {% when 'Twitter' %}
+              {% assign social_link = 'https://twitter.com' %}
+          {% endcase %}
+          <a href="{{ social_link }}" title="" class="social-link" target="_blank">
+            {% include {{social_icon}} %}
+            <span class="visually-hidden">{{ social }}</span>
+          </a>
+        {% endfor %}
+      </div>
+
+      <!-- <nav class="site-footer--nav">
+        <input type="checkbox" name="open-menu" id="open-menu">
+        <label class="site-footer--nav__menu-btn" for="open-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="visually-hidden">Menu</span>
+        </label>
+        <div class="site-footer--nav__drawer">      
+          <ul class="site-footer--nav__items">
+            {% for nav_item in section.navigation %}
+              <li class="site-footer--nav__item {% if page.url == nav_item.link %}active{% endif %}">
+                <a href="{{ nav_item.link | relative_url }}">
+                  {{ nav_item.link_text }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </nav> -->
+
+    </div>
+  </div>
+
+
+  {% include custom-css.html css=customCSS class=cssClass %}
+
+</header>
+
+<div class="header-clear" style="min-height:var(--header-height,50px);"></div>

@@ -1,107 +1,37 @@
 <!-- include/video -->
-{% comment %}
 {% assign s             = section %}
 
 {% assign ttl           = s.section_title | default: '' %}
-{% assign txt           = s.section_text | default: '' %}
 
-{% assign lnk_url       = s.button_url | default: '' %}
-{% assign lnk_txt       = s.button_text | default: '' %}
-
-
-{% assign large_images  = s.large_images %}
-{% assign align_ctas_l  = s.align_ctas_left %}
-
-{% assign use_lnk       = false %}
-{% if lnk_url != '' and lnk_txt != '' %}
-    {% assign use_lnk   = true %}
-{% endif %}
+{% assign video_embed   = s.video_embed %}
 
 {% assign customCSS     = s.custom_css %}
 {% assign sectionID     = s.block | append: '--' | append: forloop.index %}
 {% assign sectionClass  = 'section--' | append: sectionID %}
 {% assign cssClass      = '.' | append: sectionClass %}
 
-{% case section.cta.size %}
-    {% when 1 %}{%- assign width = '' -%}
-    {% when 2 %}{%- assign width = 'large-up--one-half' -%}
-    {% when 4 or 7 or 8 %}{%- assign width = 'medium--one-half large-up--one-quarter' -%}
-    {% else %}{%- assign width = 'large-up--one-third' -%}
-{% endcase %}
+{% if video_embed != blank %}
+  <section id="{{sectionID}}" class="section--video {{sectionClass}}">
 
-<section id="{{sectionID}}" class="section--ctas {{sectionClass}}">
+    <div class="page-width with-padding">
 
-  <div class="page-width with-padding">
-
-    {% if ttl != '' or img != '' or txt != '' %}
-      <div class="section--title text-center {% if ttl != '' and img == '' and txt == '' and use_lnk == true %}inline--link{% endif %}">
-        {% if ttl != '' %}
-          <h2>{{ttl}}</h2>
-        {% endif %}
-        {% if txt != '' %}
-          <div class="rte">{{txt}}</div>
-        {% endif %}
-        {% if use_lnk == true %}
-          <a href="{{lnk_url}}" class="text-link">{{lnk_txt}}</a>
-        {% endif %}
-      </div>
-    {% endif %}
-
-    <div class="grid grid_margin_bottom vert-top">
-      
-      {% for c in section.cta %}
-        {% assign img             = c.image | default: '' %}
-        {% assign ttl             = c.title | default: '' %}
-        {% assign txt             = c.text | default: '' %}
-        {% assign lnk             = b.link | default: '' %}
-
-
-        {% assign extraClass      = '' %}
-        {% assign useBG           = false %}
-        {% assign cf              = true %}
-
-        {% assign el              = 'div' %}
-        {% assign attr            = '' %}
-        {% if lnk != '' %}
-            {% assign el          = 'a' %}
-            {% assign attr        = 'href="' | append: lnk | append: '"' %}
-        {% endif %}
-
-        {% assign extraClass      = 'icon-image inner-icon' %}
-
-        {% if large_images == true %}
-            {% assign extraClass  = 'normal-image' %}
-        {% endif %}
-
-
-        <div class="grid__item {{width}} {% if align_ctas_left == true %}text-left{% endif %}">
-          <{{el}} {{attr}} class="inner-container">
-            
-            {% include snippet--image.html img=img useBG=useBG cf=cf extraClass=extraClass %}
-
-            {% if ttl != '' %}
-              <h3>{{ttl}}</h3>
-            {% endif %}
-
-            {% if txt != '' %}
-              <div class="rte">{{txt}}</div>
-            {% endif %}
-
-            {% if useBtnBlk == true %}
-              <a href="{{lnk}}" class="btn btn--{{btnStyleBlk}}">{{btnTxt}}</a>
-            {% endif %}
-
-          </{{el}}>
+      {% if ttl != '' %}
+        <div class="section--title text-center {% if ttl != '' %}inline--link{% endif %}">
+          {% if ttl != '' %}
+            <h2>{{ttl}}</h2>
+          {% endif %}
         </div>
+      {% endif %}
 
+      <div class="video-inline">
+        <div class="wrapper">
+          {{video_embed}}
+        </div>
+      </div>
 
-      {% endfor %}
     </div>
 
-  </div>
+    {% include custom-css.html css=customCSS class=cssClass %}
 
-  {% include custom-css.html css=customCSS class=cssClass %}
-
-</section>
-
-{% endcomment %}
+  </section>
+{% endif %}
