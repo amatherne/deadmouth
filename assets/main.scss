@@ -871,6 +871,7 @@ body {
 // Headings
 $headings--number: 6;
 $headings--font-size: 16px;
+$headings--font-size--mobile: 10px;
 $headings--scale: 7; // amount of px headings grow from h6 to h1
 
 @for $i from 1 through $headings--number {
@@ -898,6 +899,9 @@ $headings--scale: 7; // amount of px headings grow from h6 to h1
       &:not(:first-child) {
         margin-top: var(--base-gutter--double);
       }
+    }
+    @include mq($small) {
+      font-size: $headings--font-size--mobile + $headings--scale * (6 - $i);
     }
   }
 }
@@ -2036,6 +2040,30 @@ a {
 
 
   // }
+
+
+  @include mq($small) {
+    &,
+    * {
+      --grid-gutter: 10px;
+      // --grid-gutter--neg: calc(var(--grid-gutter) * -1);
+    }
+    .inner-content {
+      min-height: 0;
+      padding-top: 75%;
+    }
+
+
+    .grid__item {
+      &:nth-of-type(3n),
+      &:nth-of-type(odd):last-child {
+        width: 100%;
+        .inner-content {
+          padding-top: 50%;
+        }
+      }
+    }
+  }
   @include mq($medium-up) {
     .grid__item:not(.one-whole) {
       width: 50%;
@@ -2278,6 +2306,7 @@ body.modal-active {
   left: 0;
   width: 100%;
   z-index: 99;
+  border-bottom: 1px solid var(--color--site-background);
 
   * {
     scrollbar-width: none;

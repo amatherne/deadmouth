@@ -110,27 +110,27 @@
             {% assign width           = c.width | split: ' ' | first %}
             {% case width %}
               {% when '8%' %}
-                {% assign width = 'medium-down--one-whole one-twelfth' %}
+                {% assign width = 'medium-down--one-half one-twelfth' %}
               {% when '16%' %}
-                {% assign width = 'medium-down--one-whole two-twelfths' %}
+                {% assign width = 'medium-down--one-half two-twelfths' %}
               {% when '25%' %}
-                {% assign width = 'medium-down--one-whole three-twelfths' %}
+                {% assign width = 'medium-down--one-half three-twelfths' %}
               {% when '33%' %}
-                {% assign width = 'medium-down--one-whole four-twelfths' %}
+                {% assign width = 'medium-down--one-half four-twelfths' %}
               {% when '41%' %}
-                {% assign width = 'medium-down--one-whole five-twelfths' %}
+                {% assign width = 'medium-down--one-half five-twelfths' %}
               {% when '50%' %}
-                {% assign width = 'medium-down--one-whole six-twelfths' %}
+                {% assign width = 'medium-down--one-half six-twelfths' %}
               {% when '58%' %}
-                {% assign width = 'medium-down--one-whole seven-twelfths' %}
+                {% assign width = 'medium-down--one-half seven-twelfths' %}
               {% when '66%' %}
-                {% assign width = 'medium-down--one-whole eight-twelfths' %}
+                {% assign width = 'medium-down--one-half eight-twelfths' %}
               {% when '75%' %}
-                {% assign width = 'medium-down--one-whole nine-twelfths' %}
+                {% assign width = 'medium-down--one-half nine-twelfths' %}
               {% when '83%' %}
-                {% assign width = 'medium-down--one-whole ten-twelfths' %}
+                {% assign width = 'medium-down--one-half ten-twelfths' %}
               {% when '91%' %}
-                {% assign width = 'medium-down--one-whole eleven-twelfths' %}
+                {% assign width = 'medium-down--one-half eleven-twelfths' %}
               {% else %}
                 {% assign width = 'one-whole' %}
             {% endcase %}
