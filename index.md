@@ -71,18 +71,6 @@ page_sections:
     transform: translate(-50%,-95%);
     }
     }
-- template: audio-player
-  block: audio-player
-  songs:
-  - song_title: The Middle
-    record_title: New EP
-    song_file: "/uploads/2021/07/18/the-middle.wav"
-  - song_title: Quitter
-    record_title: New EP
-    song_file: "/uploads/2021/07/18/quitter.wav"
-  - song_title: Headlocked
-    record_title: New EP
-    song_file: "/uploads/2021/07/18/headlocked.wav"
 - template: ctas
   block: ctas
   section_title: Members
@@ -353,6 +341,18 @@ page_sections:
   button_text: ''
   button_url: ''
   custom_css: ''
+- template: audio-player
+  block: audio-player
+  songs:
+  - song_title: The Middle
+    record_title: New EP
+    song_file: "/uploads/2021/07/18/the-middle.wav"
+  - song_title: Quitter
+    record_title: New EP
+    song_file: "/uploads/2021/07/18/quitter.wav"
+  - song_title: Headlocked
+    record_title: New EP
+    song_file: "/uploads/2021/07/18/headlocked.wav"
 - template: simple-footer
   block: footer
   content: ''
