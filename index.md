@@ -157,13 +157,13 @@ page_sections:
   link_row:
   - image: "/uploads/2021/07/10/applemusiclogo.svg"
     text: ''
-    link: ''
+    link: https://apple/com/music
   - image: "/uploads/2021/07/10/spotifylogo.svg"
     text: ''
-    link: ''
+    link: https://spotify.com
   - image: "/uploads/2021/07/10/youtubelogo.svg"
     text: ''
-    link: ''
+    link: https://youtube.com
   section_text: ''
   row_button_text: ''
   row_button_url: "/test"
