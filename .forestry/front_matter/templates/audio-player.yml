@@ -1,4 +1,34 @@
 ---
 label: Audio Player
 hide_body: true
-fields: []
+fields:
+- name: block
+  type: text
+  config:
+    required: false
+  label: Block
+  default: audio-player
+- name: songs
+  type: field_group_list
+  fields:
+  - name: song_title
+    type: text
+    config:
+      required: false
+    label: Song Title
+  - name: record_title
+    type: text
+    config:
+      required: false
+    label: Record Title
+    description: Album, Release, EP, Etc.
+  - name: song_file
+    type: file
+    config:
+      maxSize: 64
+    label: Song File
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Songs
