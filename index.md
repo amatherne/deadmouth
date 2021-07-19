@@ -138,12 +138,15 @@ page_sections:
       }
     button_style: ''
   - image: "/uploads/2021/07/19/deadmouth-monster-cover-art.png"
-    title: Bio 2
-    text: After debuting a few tracks, Deadmouth caught the attention of Brendan Williams  and
-      Mike Kalajin (The Devil Wears Prada, Emmure, Drug Church) and began working
-      on what is already turning out to be a fun next level feel for the band. Monster
-      and Same Pain being the first two tracks with the new team of producers has
-      been a very motivating start to what feels like a solid artistic relationship!
+    title: The Team
+    text: "After debuting a few tracks, Deadmouth caught the attention of Brendan
+      Williams  and Mike Kalajin (The Devil Wears Prada, Emmure, Drug Church) and
+      began working on what is already turning out to be a fun next level feel for
+      the band. Monster and Same Pain being the first two tracks with the new team
+      of producers has been a very motivating start to what feels like a solid artistic
+      relationship!\n\nPhotography/Video:  \nDom Macias/Brett Simoens\n\nMusic Video:
+      Matt Bender\n\nMixed/Produced: Brendan Williams\n\nMastered: Mike Kalajin\n\nWriters:
+      Matt Fourman/ Nico Cespedes"
     button_text: ''
     button_url: ''
     text_color: "#000000"
