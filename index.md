@@ -341,13 +341,9 @@ page_sections:
   align_ctas_left: true
   section_title: Merch
   cta:
-  - image: "/uploads/2021/07/18/dmrose.png"
-    title: Toyko Long-Sleeve Shirt
-    text: "$25.00"
-    link: https://google.com
   - image: "/uploads/2021/07/18/dmrose2.png"
-    title: Graphic T-Shirt
-    text: "$25"
+    title: Long Sleeve Graphic Tee
+    text: "$30"
     link: https://google.com
   section_text: ''
   button_text: ''
