@@ -341,6 +341,10 @@ page_sections:
   align_ctas_left: true
   section_title: Merch
   cta:
+  - image: "/uploads/2021/07/19/150159743_889904208427723_4687371521144913018_o.jpg"
+    title: Dad Hat Logo
+    text: "$25"
+    link: ''
   - image: "/uploads/2021/07/18/dmrose2.png"
     title: Long Sleeve Graphic Tee
     text: "$30"
