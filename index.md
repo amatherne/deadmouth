@@ -352,9 +352,9 @@ page_sections:
 - template: audio-player
   block: audio-player
   songs:
-  - song_title: Monster (Release 8/16)
+  - song_title: Monster (Released 8/16)
     record_title: ''
-    song_file: "/uploads/2021/07/19/01-monster-mkmstrv1-1644-1.wav"
+    song_file: "/uploads/2021/07/19/monster.wav"
   - song_title: Same Pain (Unreleased)
     record_title: ''
     song_file: "/uploads/2021/07/19/same-pain.wav"
