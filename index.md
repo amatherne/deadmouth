@@ -352,6 +352,9 @@ page_sections:
 - template: audio-player
   block: audio-player
   songs:
+  - song_title: Monster (Release 8/16)
+    record_title: ''
+    song_file: ''
   - song_title: Same Pain (Unreleased)
     record_title: ''
     song_file: "/uploads/2021/07/19/same-pain.wav"
