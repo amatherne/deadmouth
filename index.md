@@ -94,7 +94,7 @@ page_sections:
     link: ''
   - image: "/uploads/2021/07/03/nico.png"
     title: Nicolai Cespedes
-    text: Studio Guitarist
+    text: Guitarist
     link: ''
   button_text: ''
   large_images: true
