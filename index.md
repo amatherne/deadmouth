@@ -114,14 +114,17 @@ page_sections:
   row:
   - image: "/uploads/2021/07/10/two-grid.png"
     title: Bio
-    text: |-
-      But with the blast shield down, I can't even see! How am I supposed to fight? Escape is not his plan. I must face him, alone. What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like…suicide.
-
-      You're all clear, kid. Let's blow this thing and go home! I have traced the Rebel spies to her. Now she is my only link to finding their secret base. Leave that to me. Send a distress signal, and inform the Senate that all on board were killed.
+    text: Deadmouth is branding themselves as a NuCore 4-piece metal band based out
+      of Austin, Texas! Looking to be the next creative flow in heavy metal, Deadmouth
+      steps out with something to say from the very first note you hear! Having formed
+      from multiple strong projects, Deadmouth looks to push the boundaries of the
+      new wave of heavy while still respecting the sound that inspired them all.From
+      headbanging riffs to body bending breakdowns, Deadmouth is working to bring
+      you everything to love with all things heavy music.
     button_text: ''
     button_url: ''
     text_color: "#FFFFFF"
-    background_color: ''
+    background_color: "#B12929"
     button_colors:
       text: ''
       background: ''
