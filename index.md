@@ -113,7 +113,7 @@ page_sections:
   block: two-grid
   row:
   - image: "/uploads/2021/07/10/two-grid.png"
-    title: Bio
+    title: 'Deadmouth:'
     text: Deadmouth is branding themselves as a NuCore 4-piece metal band based out
       of Austin, Texas! Looking to be the next creative flow in heavy metal, Deadmouth
       steps out with something to say from the very first note you hear! Having formed
