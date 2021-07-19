@@ -18,7 +18,7 @@ page_sections:
     link_text: Monster
   - link: "#ctas--8"
     link_text: Merch
-  logo: ''
+  logo: "/uploads/2021/07/19/deadmouth-monster-cover-art.png"
 - template: hero-image
   alignment: Center
   size: Cover
