@@ -137,16 +137,17 @@ page_sections:
       text-transform: uppercase;
       }
     button_style: ''
-  - image: "/uploads/2021/07/10/two-grid.png"
+  - image: "/uploads/2021/07/19/deadmouth-monster-cover-art.png"
     title: Bio 2
-    text: |-
-      But with the blast shield down, I can't even see! How am I supposed to fight? Escape is not his plan. I must face him, alone. What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like…suicide.
-
-      You're all clear, kid. Let's blow this thing and go home! I have traced the Rebel spies to her. Now she is my only link to finding their secret base. Leave that to me. Send a distress signal, and inform the Senate that all on board were killed.
+    text: After debuting a few tracks, Deadmouth caught the attention of Brendan Williams  and
+      Mike Kalajin (The Devil Wears Prada, Emmure, Drug Church) and began working
+      on what is already turning out to be a fun next level feel for the band. Monster
+      and Same Pain being the first two tracks with the new team of producers has
+      been a very motivating start to what feels like a solid artistic relationship!
     button_text: ''
     button_url: ''
     text_color: "#000000"
-    background_color: "#FFFFFF"
+    background_color: "#E13030"
     button_colors:
       text: ''
       background: ''
