@@ -138,7 +138,7 @@ page_sections:
       }
     button_style: ''
   - image: "/uploads/2021/07/19/deadmouth-monster-cover-art.png"
-    title: The Team
+    title: 'The Team:'
     text: "After debuting a few tracks, Deadmouth caught the attention of Brendan
       Williams  and Mike Kalajin (The Devil Wears Prada, Emmure, Drug Church) and
       began working on what is already turning out to be a fun next level feel for
