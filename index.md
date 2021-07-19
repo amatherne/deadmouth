@@ -331,7 +331,9 @@ page_sections:
 - template: video
   block: video
   section_title: Monster - Music Video
-  video_embed: https://www.youtube.com/watch?v=pwQAgs2tYls
+  video_embed: <iframe width="560" height="315" src="https://www.youtube.com/embed/pwQAgs2tYls"
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+    encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   custom_css: ''
 - template: ctas
   block: ctas
