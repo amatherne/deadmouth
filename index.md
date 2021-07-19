@@ -124,7 +124,7 @@ page_sections:
     button_text: ''
     button_url: ''
     text_color: "#FFFFFF"
-    background_color: "#B12929"
+    background_color: "#8B3037"
     button_colors:
       text: ''
       background: ''
@@ -132,10 +132,7 @@ page_sections:
       hover_-_text: ''
       hover_-_background: ''
       hover_-_border: ''
-    custom_css: |-
-      == h2 {
-      text-transform: uppercase;
-      }
+    custom_css: "== h2 {\ntext-transform: uppercase;\n}\n\n/* \nold color \n#B12929\n*/\n"
     button_style: ''
   - image: "/uploads/2021/07/19/deadmouth-monster-cover-art.png"
     title: 'The Team:'
@@ -149,8 +146,8 @@ page_sections:
       Matt Fourman/ Nico Cespedes"
     button_text: ''
     button_url: ''
-    text_color: "#000000"
-    background_color: "#E13030"
+    text_color: "#FFFFFF"
+    background_color: "#8B3037"
     button_colors:
       text: ''
       background: ''
@@ -158,7 +155,7 @@ page_sections:
       hover_-_text: ''
       hover_-_background: ''
       hover_-_border: ''
-    custom_css: ''
+    custom_css: "/* \nold color \n#E13030 \n*/\n"
     button_style: ''
   reverse: false
   hide_images: false
