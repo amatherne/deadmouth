@@ -6,12 +6,12 @@ page_sections:
 - template: navigation-header
   block: header
   navigation:
+  - link: "#cta-music--5"
+    link_text: Music
   - link: "#ctas--3"
     link_text: Members
   - link_text: Bio
     link: "#two-grid--4"
-  - link: "#cta-music--5"
-    link_text: Music
   - link: "#mosaic--6"
     link_text: Gallery
   - link: "#video--7"
@@ -354,7 +354,7 @@ page_sections:
   songs:
   - song_title: Monster (Release 8/16)
     record_title: ''
-    song_file: ''
+    song_file: "/uploads/2021/07/19/01-monster-mkmstrv1-1644-1.wav"
   - song_title: Same Pain (Unreleased)
     record_title: ''
     song_file: "/uploads/2021/07/19/same-pain.wav"
